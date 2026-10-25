@@ -1,0 +1,146 @@
+---
+id: ark
+name: ARK Labs
+logo: ark.svg
+country: Poland
+blurb: ARK Cloud is hosted and operated in the European Union. Its terms say prompt
+  and output data are not retained unless the customer consents or debugging requires
+  it, and that external models are not trained on customer data. The privacy policy
+  says content is deleted after inference by default; request logs redact prompt fields
+  and do not log generated text. Stateful sessions and debugging are the explicit
+  caveats.
+urls:
+  homepage:
+    label: Homepage
+    url: https://ark-labs.cloud/
+  models:
+    label: Models
+    url: https://ark-labs.cloud/models/
+  pricing:
+    label: Pricing
+    url: https://ark-labs.cloud/pricing/
+  privacy:
+    label: Privacy policy
+    url: https://ark-labs.cloud/company/legal/privacy/
+  terms:
+    label: Terms and DPA
+    url: https://ark-labs.cloud/company/legal/terms/
+  trust:
+    label: Trust
+    url: https://ark-labs.cloud/company/trust/
+regions:
+- id: pl
+  label: Poland
+  description: ARK Labs was founded in Szczecin, Poland. ARK Cloud is hosted and operated
+    by ARK Labs in the European Union; ARK Core runs on customer infrastructure and
+    is outside this provider region.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+models:
+- model_id: qwen3.6-35b-a3b
+  vendor_model_id: qwen3.6-35b-a3b
+  api_model: arklabsai/Qwen3.6-35B-A3B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.01361
+      unit: M
+      dp: 5
+    output:
+      value: 0.39248
+      unit: M
+      dp: 5
+  serving_regions:
+  - pl
+  note: image tokens add a surcharge
+- model_id: qwen3.5-122b-a10b
+  vendor_model_id: qwen3.5-122b-a10b
+  api_model: arklabsai/Qwen3.5-122B-A10B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.03315
+      unit: M
+      dp: 5
+    output:
+      value: 1.21277
+      unit: M
+      dp: 5
+  serving_regions:
+  - pl
+  note: image tokens add a surcharge
+- model_id: qwen3.5-4b
+  vendor_model_id: qwen3.5-4b
+  api_model: arklabsai/Qwen3.5-4B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.00846
+      unit: M
+      dp: 5
+    output:
+      value: 0.28509
+      unit: M
+      dp: 5
+  serving_regions:
+  - pl
+  note: image tokens add a surcharge
+- model_id: bielik-11b-v3.0-instruct
+  vendor_model_id: bielik-11b-v3-instruct
+  api_model: arklabsai/Bielik-11B-v3.0-Instruct
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.08724
+      unit: M
+      dp: 5
+    output:
+      value: 0.34895
+      unit: M
+      dp: 5
+  serving_regions:
+  - pl
+  note: Polish-first
+- model_id: bge-m3
+  vendor_model_id: bge-m3
+  api_model: arklabsai/bge-m3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.00872
+      unit: M
+      dp: 5
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - pl
+- model_id: whisper-large-v3-turbo
+  vendor_model_id: whisper-large-v3-turbo
+  api_model: arklabsai/whisper-large-v3-turbo
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.00021
+      unit: min
+      dp: 5
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - pl
+backend_enabled: false

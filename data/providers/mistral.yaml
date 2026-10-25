@@ -1,0 +1,301 @@
+---
+id: mistral
+name: Mistral
+logo: mistral.svg
+country: France
+blurb: States that data sent through the API is not used for training, with a training
+  opt-out that is a separate control from retention. Zero data retention is granted
+  on request and reviewed case by case, and covers stateless calls such as chat, embeddings,
+  OCR and speech, but not stateful products such as Batch and the Files API. Inference
+  runs on GPU infrastructure Mistral manages, including third-party models such as
+  GLM, and the EU endpoint pins processing to EU and EFTA data centres at a 10% upcharge.
+urls:
+  homepage:
+    label: Homepage
+    url: https://mistral.ai/
+  privacy:
+    label: Privacy policy
+    url: https://legal.mistral.ai/terms/privacy-policy
+  dpa:
+    label: Data processing addendum
+    url: https://legal.mistral.ai/terms/data-processing-addendum
+  zdr:
+    label: Zero data retention
+    url: https://docs.mistral.ai/admin/monitor-comply/zero-data-retention
+  regional_inference:
+    label: Regional inference
+    url: https://docs.mistral.ai/inference/regional-inference
+  trust:
+    label: Trust center
+    url: https://trust.mistral.ai/
+regions:
+- id: fr
+  label: Les Ulis, Essonne, France
+  description: Mistral operates a 10 MW inference data centre at Les Ulis in Essonne,
+    France. The EU regional endpoint pins inference to Mistral-managed GPU infrastructure
+    in EU and EFTA countries; the regional guarantee covers inference only and not
+    the global control plane.
+  endpoint: https://api.eu.mistral.ai/v1
+  api_convention: open_ai
+  api_key: MISTRAL_API_KEY
+  backend_enabled: true
+models:
+- model_id: mistral-large-4
+  vendor_model_id: mistral-large-4
+  api_model: mistral-large-4
+  flagship: true
+  backend_enabled: true
+  pricing:
+    currency: USD
+    input:
+      value: 0.59
+      unit: M
+    cached_input:
+      value: 0.06
+      unit: M
+    output:
+      value: 1.82
+      unit: M
+  serving_regions:
+  - fr
+  note: Preview, launch sale rate
+  profiles:
+  - id: -5
+    display_name: Mistral Large 4
+    selectable: true
+    legacy: false
+    assigned_by: system
+- model_id: mistral-large-2512
+  vendor_model_id: mistral-large-3
+  api_model: Mistral Large 3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.44
+      unit: M
+    cached_input:
+      value: 0.04
+      unit: M
+    output:
+      value: 1.31
+      unit: M
+  serving_regions:
+  - fr
+- model_id: mistral-medium-3-5
+  vendor_model_id: mistral-medium-3.5-128b
+  api_model: Mistral Medium 3.5
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.31
+      unit: M
+    cached_input:
+      value: 0.13
+      unit: M
+    output:
+      value: 6.54
+      unit: M
+  serving_regions:
+  - fr
+- model_id: mistral-small-2603
+  vendor_model_id: mistral-small-4
+  api_model: Mistral Small 4
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.13
+      unit: M
+    cached_input:
+      value: 0.013
+      unit: M
+      dp: 3
+    output:
+      value: 0.52
+      unit: M
+  serving_regions:
+  - fr
+- model_id: ministral-14b-2512
+  vendor_model_id: ministral-3-14b
+  api_model: Ministral 3 14B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.17
+      unit: M
+    cached_input:
+      value: 0.017
+      unit: M
+      dp: 3
+    output:
+      value: 0.17
+      unit: M
+  serving_regions:
+  - fr
+- model_id: ministral-8b-2512
+  vendor_model_id: ministral-3-8b
+  api_model: Ministral 3 8B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.13
+      unit: M
+    cached_input:
+      value: 0.013
+      unit: M
+      dp: 3
+    output:
+      value: 0.13
+      unit: M
+  serving_regions:
+  - fr
+- model_id: ministral-3b-2512
+  vendor_model_id: ministral-3-3b
+  api_model: Ministral 3 3B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.09
+      unit: M
+    cached_input:
+      value: 0.009
+      unit: M
+      dp: 3
+    output:
+      value: 0.09
+      unit: M
+  serving_regions:
+  - fr
+- model_id: zai-glm-5-3
+  vendor_model_id: glm-5.3
+  api_model: Z.ai GLM 5.3
+  flagship: true
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.22
+      unit: M
+    cached_input:
+      value: 0.12
+      unit: M
+    output:
+      value: 3.84
+      unit: M
+  serving_regions:
+  - fr
+  note: Third-party model hosted by Mistral
+- model_id: codestral-2508
+  vendor_model_id: codestral
+  api_model: Codestral
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.26
+      unit: M
+    cached_input:
+      value: 0.03
+      unit: M
+    output:
+      value: 0.79
+      unit: M
+  serving_regions:
+  - fr
+- model_id: codestral-embed-2505
+  vendor_model_id: codestral-embed
+  api_model: Codestral Embed
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.13
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr
+- model_id: mistral-ocr-4-1
+  vendor_model_id: ocr-4-1
+  api_model: OCR 4.1
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 3.49
+      unit: 1000 pages
+    cached_input:
+      value: 0.35
+      unit: 1000 pages
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr
+  note: OCR
+- model_id: voxtral-mini-2602
+  vendor_model_id: voxtral-mini-transcribe-2
+  api_model: Voxtral Mini Transcribe 2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.0026
+      unit: min
+      dp: 4
+    cached_input:
+      value: 0.0003
+      unit: min
+      dp: 4
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr
+- model_id: voxtral-mini-tts-2603
+  vendor_model_id: voxtral-tts
+  api_model: Voxtral TTS
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0
+      unit:
+    output:
+      value: 13.96
+      unit: M chars
+  serving_regions:
+  - fr
+- model_id: mistral-moderation-2603
+  vendor_model_id: mistral-moderation-2
+  api_model: Mistral Moderation 2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr
+backend_enabled: true

@@ -1,0 +1,287 @@
+---
+id: ionos
+name: IONOS
+logo: ionos.svg
+country: Germany
+blurb: Prompts and outputs are never logged and never read by staff. Inference is
+  stateless and nothing is written to persistent storage; no third-party sub-processors
+  are used and processing stays in IONOS Cloud data centres in Germany.
+urls:
+  homepage:
+    label: Homepage
+    url: https://www.ionos.com/
+  privacy:
+    label: Privacy policy
+    url: https://www.ionos.com/terms-gtc/privacy-policy/
+  data_handling:
+    label: Data handling for AI Model Hub
+    url: https://docs.ionos.com/cloud/ai/ai-model-hub/governance-and-compliance/data-handling
+  eu_ai_act:
+    label: EU AI Act
+    url: https://docs.ionos.com/cloud/ai/ai-model-hub/governance-and-compliance/eu-ai-act
+  terms:
+    label: Terms and conditions
+    url: https://www.ionos.com/terms-gtc/general-terms-and-conditions/
+  security:
+    label: Security
+    url: https://www.ionos.com/security/
+regions:
+- id: de
+  label: Germany
+  description: All inference runs in IONOS Cloud data centres in Germany and nowhere
+    else. The data centres are ISO 27001 certified, and IONOS engages no third-party
+    sub-processors for AI Model Hub.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+models:
+- model_id: qwen3.8-27b
+  vendor_model_id: qwen3.8-27b
+  api_model: Qwen3.8-27B
+  flagship: true
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.39
+      unit: M
+    output:
+      value: 2.36
+      unit: M
+  serving_regions:
+  - de
+- model_id: qwen3.5-9b
+  vendor_model_id: qwen3.5-9b
+  api_model: Qwen3.5-9B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0.15
+      unit: M
+  serving_regions:
+  - de
+- model_id: mistral-nemo-instruct
+  vendor_model_id: mistral-nemo-12b
+  api_model: Mistral Nemo Instruct
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.15
+      unit: M
+    output:
+      value: 0.15
+      unit: M
+  serving_regions:
+  - de
+- model_id: mistral-small-24b-instruct
+  vendor_model_id: mistral-small-3.2-24b-instruct-2506
+  api_model: Mistral Small 24B Instruct
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0.29
+      unit: M
+  serving_regions:
+  - de
+- model_id: gpt-oss-120b
+  vendor_model_id: gpt-oss-120b
+  api_model: gpt-oss-120b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.15
+      unit: M
+    output:
+      value: 0.62
+      unit: M
+  serving_regions:
+  - de
+- model_id: llama-3.3-70b-instruct
+  vendor_model_id: llama-3.3-70b-instruct
+  api_model: Llama 3.3 70B Instruct
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.62
+      unit: M
+    output:
+      value: 0.62
+      unit: M
+  serving_regions:
+  - de
+- model_id: qwen3-coder-next-80b
+  vendor_model_id: qwen3-coder-next-80b
+  api_model: Qwen3-Coder-Next (80B)
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.15
+      unit: M
+    output:
+      value: 0.78
+      unit: M
+  serving_regions:
+  - de
+- model_id: qwen3.5-397b-a17b
+  vendor_model_id: qwen3.5-397b-a17b
+  api_model: Qwen3.5-397B-A17B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.58
+      unit: M
+    output:
+      value: 3.49
+      unit: M
+  serving_regions:
+  - de
+- model_id: lightonocr-2
+  vendor_model_id: lightonocr-2-1b
+  api_model: LightOnOCR 2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.15
+      unit: M
+    output:
+      value: 0.29
+      unit: M
+  serving_regions:
+  - de
+  note: OCR
+- model_id: flux-1-schnell
+  vendor_model_id: flux-1-schnell
+  api_model: FLUX.1 [schnell]
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0.03
+      unit: image
+  serving_regions:
+  - de
+- model_id: flux-2-klein-4b
+  vendor_model_id: flux-2-klein-4b
+  api_model: FLUX.2 [klein]
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0.012
+      unit: MP
+      dp: 3
+    output_note: then 0.001/MP
+  serving_regions:
+  - de
+- model_id: bge-large-en-v1.5
+  vendor_model_id: bge-large-en-v1.5
+  api_model: bge-large-en-v1.5
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.013
+      unit: M
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - de
+- model_id: bge-m3
+  vendor_model_id: bge-m3
+  api_model: bge-m3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.017
+      unit: M
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - de
+- model_id: paraphrase-multilingual-mpnet-base-v2
+  vendor_model_id: paraphrase-multilingual-mpnet-base-v2
+  api_model: paraphrase-multilingual-mpnet-base-v2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.009
+      unit: M
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - de
+- model_id: qwen3-vl-embedding-8b
+  vendor_model_id: qwen3-vl-embedding-8b
+  api_model: qwen3-vl-embedding-8b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.096
+      unit: M
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - de
+- model_id: qwen3-vl-reranker-8b
+  vendor_model_id: qwen3-vl-reranker-8b
+  api_model: qwen3-vl-reranker-8b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.039
+      unit: M
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - de
+backend_enabled: false

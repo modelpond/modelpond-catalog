@@ -1,0 +1,329 @@
+---
+id: regolo
+name: Regolo.ai
+logo: regolo.png
+country: Italy
+blurb: 'Runs an explicit zero-retention policy: prompts and outputs are processed
+  in memory, discarded after the response, and not logged, written to disk or reused
+  for training. The policy has an independent zero-data-retention certificate; user-enabled
+  storage is the stated exception. Inference runs in European data centres, including
+  Lazio and Lombardy in Italy.'
+urls:
+  homepage:
+    label: Homepage
+    url: https://regolo.ai/
+  models:
+    label: Models
+    url: https://regolo.ai/models/
+  pricing:
+    label: Pricing
+    url: https://regolo.ai/pricing/
+  zdr:
+    label: Zero data retention
+    url: https://regolo.ai/zero-data-retention/
+  privacy:
+    label: Privacy policy
+    url: https://regolo.ai/privacy-policy/
+  terms:
+    label: Terms and DPA
+    url: https://regolo.ai/terms-and-conditions/
+regions:
+- id: lazio
+  label: Lazio, Italy
+  description: Inference infrastructure is hosted near Rome in the province of Frosinone,
+    Lazio, Italy.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+- id: lombardy
+  label: Lombardy, Italy
+  description: Inference infrastructure is hosted in Lombardy, Italy.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+models:
+- model_id: apertus-70b
+  vendor_model_id: swissai-apertus-1.5-70b
+  api_model: apertus-70b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.4
+      unit: M
+    output:
+      value: 2.1
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: brick-complexity-pro
+  vendor_model_id: brick-complexity-pro
+  api_model: brick-complexity-pro
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0.4
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: brick-v1-beta
+  vendor_model_id: brick-v1-beta
+  api_model: brick-v1-beta
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: clef-flash
+  vendor_model_id: clef-flash
+  api_model: clef-flash
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.15
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - lazio
+  - lombardy
+  note: Typed multi-question decisions
+- model_id: deepseek-ocr-2
+  vendor_model_id: deepseek-ocr-2
+  api_model: deepseek-ocr-2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.02
+      unit: request
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - lazio
+  - lombardy
+  note: OCR, per request
+  input_modalities:
+  - image
+- model_id: faster-whisper-large-v3
+  vendor_model_id: faster-whisper-large-v3
+  api_model: faster-whisper-large-v3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.009
+      unit: min
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - lazio
+  - lombardy
+  note: EUR 0.54 per audio hour
+- model_id: gemma4-31b
+  vendor_model_id: gemma-4-31b-it
+  api_model: gemma4-31b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.4
+      unit: M
+    output:
+      value: 2.1
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: glm5.2
+  vendor_model_id: glm-5.2
+  api_model: glm5.2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 2
+      unit: M
+    output:
+      value: 5.2
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: gpt-oss-120b
+  vendor_model_id: gpt-oss-120b
+  api_model: gpt-oss-120b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 1
+      unit: M
+    output:
+      value: 4.2
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: gpt-oss-20b
+  vendor_model_id: gpt-oss-20b
+  api_model: gpt-oss-20b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0.42
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: mistral-small-4-119b
+  vendor_model_id: mistral-small-4
+  api_model: mistral-small-4-119b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.5
+      unit: M
+    output:
+      value: 2.1
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+  input_modalities:
+  - text
+- model_id: qwen-image
+  vendor_model_id: qwen-image
+  api_model: Qwen-Image
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0.015
+      unit: MP
+      dp: 3
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: qwen3-embedding-8b
+  vendor_model_id: qwen3-embedding-8b
+  api_model: Qwen3-Embedding-8B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.001
+      unit: request
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: qwen3-reranker-4b
+  vendor_model_id: qwen3-reranker-4b
+  api_model: Qwen3-Reranker-4B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.01
+      unit: query
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: qwen3.5-122b
+  vendor_model_id: qwen3.5-122b-a10b
+  api_model: qwen3.5-122b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 1
+      unit: M
+    output:
+      value: 4.2
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: qwen3.5-9b
+  vendor_model_id: qwen3.5-9b
+  api_model: qwen3.5-9b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.07
+      unit: M
+    output:
+      value: 0.35
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+- model_id: qwen3.8-27b
+  vendor_model_id: qwen3.8-27b
+  api_model: qwen3.8-27b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.5
+      unit: M
+    output:
+      value: 2.1
+      unit: M
+  serving_regions:
+  - lazio
+  - lombardy
+backend_enabled: false

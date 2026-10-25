@@ -1,0 +1,19 @@
+---
+id: systran
+name: Systran
+logo:
+homepage_featured: false
+country: fr
+url:
+blurb:
+models:
+- id: faster-whisper-large-v3
+  name: Faster Whisper Large v3
+  type: Speech
+  release_date:
+  aa_score:
+  blurb: Reimplementation of Whisper Large v3 with a faster runtime.
+  input_modalities:
+  - audio
+  output_modalities:
+  - text

@@ -1,0 +1,19 @@
+---
+id: stability-ai
+name: Stability AI
+logo:
+homepage_featured: false
+country: gb
+url:
+blurb:
+models:
+- id: stable-diffusion-xl
+  name: Stable Diffusion XL
+  type: Image
+  release_date: '2023-07-26'
+  aa_score:
+  blurb: Text-to-image model, zero-rated by its host.
+  input_modalities:
+  - text
+  output_modalities:
+  - image

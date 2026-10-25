@@ -1,0 +1,29 @@
+---
+id: black-forest-labs
+name: Black Forest Labs
+logo:
+homepage_featured: false
+country: de
+url:
+blurb:
+models:
+- id: flux-1-schnell
+  name: FLUX.1 schnell
+  type: Image
+  release_date: '2024-08-01'
+  aa_score:
+  blurb: Fast text-to-image model with a per-image price.
+  input_modalities:
+  - text
+  output_modalities:
+  - image
+- id: flux-2-klein-4b
+  name: FLUX.2 klein 4B
+  type: Image
+  release_date:
+  aa_score:
+  blurb: Compact image model billed per output megapixel.
+  input_modalities:
+  - text
+  output_modalities:
+  - image

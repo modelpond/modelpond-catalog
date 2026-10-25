@@ -1,0 +1,189 @@
+---
+id: multiverse
+name: Multiverse Computing
+logo: multiverse.png
+country: Spain
+blurb: CompactifAI is Multiverse Computing's managed serving product. We use its EU
+  endpoint; inference stays in EU data centres. The API retains no prompts or completions
+  and never trains on them; it keeps anonymised request logs for 30 days and minimal
+  billing metadata. Requests are stripped of the user identifier and tagged only with
+  a random request ID.
+urls:
+  homepage:
+    label: Homepage
+    url: https://multiversecomputing.com/
+  models:
+    label: Models
+    url: https://docs.compactif.ai/models/
+  pricing:
+    label: Pricing
+    url: https://docs.compactif.ai/pricing/
+  privacy:
+    label: Privacy and regions
+    url: https://docs.compactif.ai/faq/#data-privacy--processing-location
+  dpa:
+    label: Data processing agreement
+    url: https://docs.compactif.ai/data-processing-agreement/
+  company_privacy:
+    label: Company privacy policy
+    url: https://multiversecomputing.com/privacy-policy
+  compactifai:
+    label: CompactifAI
+    url: https://multiversecomputing.com/compactifai
+regions:
+- id: eu
+  label: EU (country undisclosed)
+  description: Requests use Multiverse Computing's EU regional endpoint and stay inside
+    its private network in EU data centres. The provider does not disclose the EU
+    country.
+  endpoint: https://api-eu.compactif.ai/v1
+  api_convention: open_ai
+  api_key:
+  backend_enabled: false
+models:
+- model_id: carina-60b
+  vendor_model_id: carina-60b
+  api_model: carina-60b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.019
+      unit: M
+      dp: 3
+    output:
+      value: 0.074
+      unit: M
+      dp: 3
+  serving_regions:
+  - eu
+  note: CompactifAI compressed model
+- model_id: qwen-3-8-27b
+  vendor_model_id: qwen3.8-27b
+  api_model: qwen-3-8-27b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.079
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.015
+      unit: M
+      dp: 3
+    output:
+      value: 0.384
+      unit: M
+      dp: 3
+  serving_regions:
+  - eu
+  note: CompactifAI model ID
+- model_id: glm-5-2
+  vendor_model_id: glm-5.2
+  api_model: glm-5-2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.148
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.013
+      unit: M
+      dp: 3
+    output:
+      value: 0.471
+      unit: M
+      dp: 3
+  serving_regions:
+  - eu
+  note: CompactifAI model ID
+- model_id: glm-5-3
+  vendor_model_id: glm-5.3
+  api_model: glm-5-3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.174
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.016
+      unit: M
+      dp: 3
+    output:
+      value: 0.558
+      unit: M
+      dp: 3
+  serving_regions:
+  - eu
+  note: CompactifAI model ID
+- model_id: quasar-1-2-358b
+  vendor_model_id: quasar-1-2-358b
+  api_model: quasar-1-2-358b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.096
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.009
+      unit: M
+      dp: 3
+    output:
+      value: 0.288
+      unit: M
+      dp: 3
+  serving_regions:
+  - eu
+  note: CompactifAI compressed model
+- model_id: quasar-438b
+  vendor_model_id: quasar-438b
+  api_model: quasar-438b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.096
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.009
+      unit: M
+      dp: 3
+    output:
+      value: 0.288
+      unit: M
+      dp: 3
+  serving_regions:
+  - eu
+  note: CompactifAI compressed model
+- model_id: cai-whisper-large-v3-turbo-slim
+  vendor_model_id: whisper-large-v3-turbo-slim
+  api_model: cai-whisper-large-v3-turbo-slim
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.000117
+      unit: min
+      dp: 6
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - eu
+  note: one-minute minimum
+backend_enabled: false

@@ -1,0 +1,22 @@
+---
+id: uprelic
+name: Uprelic
+logo:
+homepage_featured: false
+country: de
+url:
+blurb:
+models:
+- id: strom-1.0.7
+  name: Strom 1.0.7
+  type: System One
+  release_date:
+  aa_score:
+  blurb: Native decision model that scores typed questions in a single forward pass
+    over text or images.
+  input_modalities:
+  - image
+  - text
+  - video
+  output_modalities:
+  - typed_decision

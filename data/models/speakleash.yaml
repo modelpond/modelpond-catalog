@@ -1,0 +1,19 @@
+---
+id: speakleash
+name: SpeakLeash
+logo:
+homepage_featured: false
+country: pl
+url:
+blurb:
+models:
+- id: bielik-11b-v3-instruct
+  name: Bielik 11B v3 Instruct
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Polish-first instruction model trained across 32 European languages.
+  input_modalities:
+  - text
+  output_modalities:
+  - text

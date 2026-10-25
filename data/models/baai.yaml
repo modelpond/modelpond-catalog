@@ -1,0 +1,49 @@
+---
+id: baai
+name: BAAI
+logo:
+homepage_featured: false
+country: cn
+url:
+blurb:
+models:
+- id: bge-large-en-v1.5
+  name: BGE Large EN v1.5
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: English text embedding model, charged on input only.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: bge-m3
+  name: BGE M3
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Multilingual embedding model.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: bge-multilingual-gemma2
+  name: BGE Multilingual Gemma2
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Multilingual embedding model built on Gemma 2.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: bge-reranker-v2-m3
+  name: BGE Reranker v2 M3
+  type: Rerankers
+  release_date:
+  aa_score:
+  blurb: Reranking model for retrieved results.
+  input_modalities:
+  - text
+  output_modalities:
+  - reranker

@@ -1,0 +1,19 @@
+---
+id: swiss-ai-initiative
+name: Swiss AI Initiative
+logo:
+homepage_featured: false
+country: ch
+url:
+blurb:
+models:
+- id: swissai-apertus-1.5-70b
+  name: SwissAI Apertus 1.5 70B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Open multilingual language model developed by the Swiss AI Initiative.
+  input_modalities:
+  - text
+  output_modalities:
+  - text

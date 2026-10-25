@@ -1,0 +1,49 @@
+---
+id: openai
+name: OpenAI
+logo:
+homepage_featured: false
+country: us
+url:
+blurb:
+models:
+- id: gpt-oss-120b
+  name: gpt-oss-120b
+  type: Text
+  release_date: '2025-08-05'
+  aa_score: 11.6
+  blurb: OpenAI's open-weights release, older generation but cheap to run at scale.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: gpt-oss-20b
+  name: gpt-oss-20b
+  type: Text
+  release_date: '2025-08-05'
+  aa_score: 8.97
+  blurb: 20B sibling of the 120B model, aimed at low-latency work.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: whisper-large-v3
+  name: Whisper Large v3
+  type: Speech
+  release_date: '2023-11-06'
+  aa_score:
+  blurb: OpenAI's speech recognition model. Artificial Analysis does not score it.
+  input_modalities:
+  - audio
+  output_modalities:
+  - text
+- id: whisper-large-v3-turbo
+  name: Whisper Large v3 Turbo
+  type: Speech
+  release_date: '2024-10-01'
+  aa_score:
+  blurb: Faster, smaller variant of Whisper Large v3.
+  input_modalities:
+  - audio
+  output_modalities:
+  - text

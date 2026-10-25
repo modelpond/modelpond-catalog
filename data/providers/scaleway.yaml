@@ -1,0 +1,324 @@
+---
+id: scaleway
+name: Scaleway
+logo: scaleway.svg
+country: France
+blurb: Applies zero data retention by default. Error traces are kept up to two weeks,
+  aggregated and anonymised usage up to six months, and data is held in Paris.
+urls:
+  homepage:
+    label: Homepage
+    url: https://www.scaleway.com/
+  privacy:
+    label: Privacy policy
+    url: https://www.scaleway.com/en/privacy-policy/
+  data_privacy:
+    label: Data privacy for Generative APIs
+    url: https://www.scaleway.com/en/docs/generative-apis/reference-content/data-privacy/
+  security_and_reliability:
+    label: Security and reliability
+    url: https://www.scaleway.com/en/docs/generative-apis/reference-content/security-and-reliability/
+  contracts:
+    label: Contracts
+    url: https://www.scaleway.com/en/contracts/
+  security:
+    label: Security portal
+    url: https://security.scaleway.com/
+regions:
+- id: fr-par
+  label: Paris, France (fr-par)
+  description: Scaleway Generative APIs run entirely on sovereign infrastructure in
+    Paris, France. fr-par is the only serving region for Generative APIs.
+  endpoint: https://api.scaleway.ai/v1
+  api_convention: open_ai
+  api_key: SCALEWAY_API_KEY
+  backend_enabled: true
+models:
+- model_id: deepseek-v4-flash-0731
+  vendor_model_id: deepseek-v4-flash-0731
+  api_model: deepseek-v4-flash-0731
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.4
+      unit: M
+    cached_input:
+      value: 0.08
+      unit: M
+    output:
+      value: 0.8
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: qwen3.8-27b
+  vendor_model_id: qwen3.8-27b
+  api_model: qwen3.8-27b
+  flagship: true
+  backend_enabled: true
+  pricing:
+    currency: EUR
+    input:
+      value: 0.6
+      unit: M
+    cached_input:
+      value: 0.12
+      unit: M
+    output:
+      value: 3.3
+      unit: M
+  serving_regions:
+  - fr-par
+  restricted_effort_settings:
+    supported:
+    - none
+    - high
+    default: none
+  profiles:
+  - id: -4
+    display_name: Qwen 3.8
+    selectable: true
+    legacy: false
+    assigned_by: system
+- model_id: glm-5.2
+  vendor_model_id: glm-5.2
+  api_model: glm-5.2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 1.8
+      unit: M
+    output:
+      value: 5.5
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: mistral-medium-3.5-128b
+  vendor_model_id: mistral-medium-3.5-128b
+  api_model: mistral-medium-3.5-128b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 1.5
+      unit: M
+    output:
+      value: 7.5
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: whisper-large-v3
+  vendor_model_id: whisper-large-v3
+  api_model: whisper-large-v3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.003
+      unit: min
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr-par
+- model_id: mistral-small-3.2-24b-instruct-2506
+  vendor_model_id: mistral-small-3.2-24b-instruct-2506
+  api_model: mistral-small-3.2-24b-instruct-2506
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.15
+      unit: M
+    output:
+      value: 0.35
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: gemma-4-26b-a4b-it
+  vendor_model_id: gemma-4-26b-a4b-it
+  api_model: gemma-4-26b-a4b-it
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.25
+      unit: M
+    output:
+      value: 0.5
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: gpt-oss-120b
+  vendor_model_id: gpt-oss-120b
+  api_model: gpt-oss-120b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.15
+      unit: M
+    output:
+      value: 0.6
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: llama-3.3-70b-instruct
+  vendor_model_id: llama-3.3-70b-instruct
+  api_model: llama-3.3-70b-instruct
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.9
+      unit: M
+    output:
+      value: 0.9
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: qwen3.6-35b-a3b
+  vendor_model_id: qwen3.6-35b-a3b
+  api_model: qwen3.6-35b-a3b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.25
+      unit: M
+    output:
+      value: 1.5
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: qwen3-235b-a22b-instruct-2507
+  vendor_model_id: qwen3-235b-a22b-instruct-2507
+  api_model: qwen3-235b-a22b-instruct-2507
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.75
+      unit: M
+    output:
+      value: 2.25
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: qwen3.5-397b-a17b
+  vendor_model_id: qwen3.5-397b-a17b
+  api_model: qwen3.5-397b-a17b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.6
+      unit: M
+    output:
+      value: 3.6
+      unit: M
+  serving_regions:
+  - fr-par
+- model_id: qwen3-embedding-8b
+  vendor_model_id: qwen3-embedding-8b
+  api_model: qwen3-embedding-8b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr-par
+- model_id: bge-multilingual-gemma2
+  vendor_model_id: bge-multilingual-gemma2
+  api_model: bge-multilingual-gemma2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr-par
+- model_id: deepseek-v4.1-flash
+  vendor_model_id: deepseek-v4.1-flash
+  api_model: deepseek-v4.1-flash
+  flagship: true
+  backend_enabled: true
+  pricing:
+    currency: EUR
+    input:
+      value: 0.6
+      unit: M
+    cached_input:
+      value: 0.12
+      unit: M
+    output:
+      value: 1.8
+      unit: M
+  serving_regions:
+  - fr-par
+  restricted_effort_settings:
+    supported:
+    - none
+    - low
+    - high
+    - max
+    default: high
+  profiles:
+  - id: -1
+    display_name: Deepseek 4.1 Flash
+    selectable: true
+    legacy: false
+    assigned_by: system
+  - id: -2
+    display_name: Deepseek 4.1 Flash (Legacy)
+    selectable: false
+    legacy: true
+    assigned_by: system
+- model_id: glm-5.3
+  vendor_model_id: glm-5.3
+  api_model: glm-5.3
+  flagship: false
+  backend_enabled: true
+  pricing:
+    currency: EUR
+    input:
+    output:
+  serving_regions:
+  - fr-par
+  restricted_effort_settings:
+    supported:
+    - none
+    - high
+    - max
+    default: high
+  profiles:
+  - id: -3
+    display_name: GLM 5.3
+    selectable: true
+    legacy: false
+    assigned_by: system
+backend_enabled: true

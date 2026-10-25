@@ -1,0 +1,42 @@
+---
+id: google
+name: Google
+logo:
+homepage_featured: false
+country: us
+url:
+blurb:
+models:
+- id: gemma-4-26b-a4b-it
+  name: Gemma 4 26B A4B
+  type: Text
+  release_date: '2026-04-02'
+  aa_score: 16.67
+  blurb: Mixture-of-experts Gemma with image input and a 256K context window.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: gemma-4-31b-it
+  name: Gemma 4 31B
+  type: Text
+  release_date: '2026-04-02'
+  aa_score: 18.98
+  blurb: Dense 31B sibling of the 26B model, same release window.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: gemma-3-27b-it
+  name: Gemma 3 27B
+  type: Text
+  release_date: '2025-03-12'
+  aa_score: 4.85
+  blurb: Previous-generation Gemma with vision input; superseded by Gemma 4.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text

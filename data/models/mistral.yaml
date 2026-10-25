@@ -1,0 +1,196 @@
+---
+id: mistral
+name: Mistral
+logo: mistral.svg
+homepage_featured: true
+country: fr
+url:
+blurb:
+models:
+- id: mistral-medium-3.5-128b
+  name: Mistral Medium 3.5 128B
+  type: Text
+  release_date: '2026-04-29'
+  aa_score: 14.19
+  blurb: Mistral's mid-tier flagship, with vision input and a 1M context window in
+    the host's configuration.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: mistral-small-3.2-24b-instruct-2506
+  name: Mistral Small 3.2 24B Instruct
+  type: Text
+  release_date: '2025-06-20'
+  aa_score: 8.25
+  blurb: Small European model with vision input; widely hosted and the cheapest Mistral
+    here.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: mistral-nemo-12b
+  name: Mistral NeMo 12B
+  type: Text
+  release_date: '2024-07-18'
+  aa_score:
+  blurb: 2024 model built with NVIDIA, still hosted by IONOS. Not scored by Artificial
+    Analysis.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: mistral-large-4
+  name: Mistral Large 4
+  type: Text
+  release_date: '2026-10-06'
+  aa_score: 38
+  aa_report_url: https://artificialanalysis.ai/models/mistral-large-4
+  blurb: 'Mistral''s largest model: a one-trillion-parameter mixture of experts with
+    52B active parameters and a vision encoder, served from their own European data
+    centres. Public preview, with the weights due at the end of October 2026.'
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+  effort_settings:
+    supported:
+    - none
+    - high
+    default: high
+- id: mistral-large-3
+  name: Mistral Large 3
+  type: Text
+  release_date: '2025-12-02'
+  aa_score:
+  blurb: Mixture-of-experts flagship from December 2025, 675B total with 41B active,
+    and the generation before Large 4.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: mistral-small-4
+  name: Mistral Small 4
+  type: Text
+  release_date: '2026-03-16'
+  aa_score:
+  blurb: Unifies instruct, reasoning and multimodal work in one 119B mixture of experts
+    with 6.5B active parameters and a 256K context window.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: ministral-3-14b
+  name: Ministral 3 14B
+  type: Text
+  release_date: '2025-12-02'
+  aa_score:
+  blurb: Largest of the Ministral 3 family, at a size that still runs on local hardware.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: ministral-3-8b
+  name: Ministral 3 8B
+  type: Text
+  release_date: '2025-12-02'
+  aa_score:
+  blurb: Mid-size Ministral 3, with text and image input at the low end of the price
+    table.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: ministral-3-3b
+  name: Ministral 3 3B
+  type: Text
+  release_date: '2025-12-02'
+  aa_score:
+  blurb: Smallest of the Ministral 3 family, still multimodal, and built for edge
+    deployment.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: codestral
+  name: Codestral
+  type: Text
+  release_date: '2025-07-30'
+  aa_score:
+  blurb: Code completion and generation model, priced below Mistral's general-purpose
+    line.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: codestral-embed
+  name: Codestral Embed
+  type: Embeddings
+  release_date: '2025-05-28'
+  aa_score:
+  blurb: Code and text embedding model, charged on input only.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: ocr-4-1
+  name: OCR 4.1
+  type: Image
+  release_date: '2026-07-16'
+  aa_score:
+  blurb: Document OCR returning structured text and bounding boxes, billed per thousand
+    pages.
+  input_modalities:
+  - image
+  output_modalities:
+  - text
+- id: voxtral-mini-transcribe-2
+  name: Voxtral Mini Transcribe 2
+  type: Speech
+  release_date: '2026-02-04'
+  aa_score:
+  blurb: Transcription-only speech model, billed per minute of audio.
+  input_modalities:
+  - audio
+  output_modalities:
+  - text
+- id: voxtral-mini-3b
+  name: Voxtral Mini 3B
+  type: Speech
+  release_date: '2025-07-15'
+  aa_score:
+  blurb: Low-latency multilingual speech-recognition model, billed per minute of audio.
+  input_modalities:
+  - audio
+  output_modalities:
+  - text
+- id: voxtral-tts
+  name: Voxtral TTS
+  type: Speech
+  release_date: '2026-03-23'
+  aa_score:
+  blurb: Text-to-speech with zero-shot voice cloning, billed per million characters
+    it generates.
+  input_modalities:
+  - text
+  output_modalities:
+  - audio
+- id: mistral-moderation-2
+  name: Mistral Moderation 2
+  type: Moderation
+  release_date: '2026-03-01'
+  aa_score:
+  blurb: Moderation classifier over a 128K context window with jailbreak detection,
+    zero-rated by its host.
+  input_modalities:
+  - text
+  output_modalities:
+  - text

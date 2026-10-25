@@ -1,0 +1,41 @@
+---
+id: moonshot-ai
+name: Moonshot AI
+logo: kimi.svg
+homepage_featured: true
+country: cn
+url:
+blurb:
+models:
+- id: kimi-k3
+  name: Kimi K3
+  type: Text
+  release_date: '2026-07-16'
+  aa_score: 43.59
+  aa_report_url: https://artificialanalysis.ai/models/kimi-k3
+  blurb: Kimi K3 scores 43.6 on the Artificial Analysis Intelligence Index, within
+    a few points of the best proprietary models at the frontier and clear of everything
+    else listed here. This is the one to reach for when a task is genuinely hard and
+    cost is secondary.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+  effort_settings:
+    supported:
+    - low
+    - high
+    - max
+    default: max
+- id: kimi-k2.7-code
+  name: Kimi K2.7 Code
+  type: Text
+  release_date: '2026-06-12'
+  aa_score:
+  blurb: Code-focused Kimi model for long software-engineering sessions.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text

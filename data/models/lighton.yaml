@@ -1,0 +1,19 @@
+---
+id: lighton
+name: LightOn
+logo:
+homepage_featured: false
+country: fr
+url:
+blurb:
+models:
+- id: lightonocr-2-1b
+  name: LightOnOCR 2 1B
+  type: Image
+  release_date:
+  aa_score:
+  blurb: Vision-language OCR model returning structured text.
+  input_modalities:
+  - image
+  output_modalities:
+  - text

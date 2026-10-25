@@ -1,0 +1,19 @@
+---
+id: nbailab
+name: NbAiLab
+logo:
+homepage_featured: false
+country: 'no'
+url:
+blurb:
+models:
+- id: nb-whisper-large
+  name: NB Whisper Large
+  type: Speech
+  release_date:
+  aa_score:
+  blurb: Whisper Large v3 fine-tuned for Norwegian speech.
+  input_modalities:
+  - audio
+  output_modalities:
+  - text

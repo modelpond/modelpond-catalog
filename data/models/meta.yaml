@@ -1,0 +1,20 @@
+---
+id: meta
+name: Meta
+logo:
+homepage_featured: false
+country: us
+url:
+blurb:
+models:
+- id: llama-3.3-70b-instruct
+  name: Llama 3.3 70B Instruct
+  type: Text
+  release_date: '2024-12-06'
+  aa_score: 7.66
+  blurb: December 2024 open-weights model, still widely hosted but far behind current
+    releases.
+  input_modalities:
+  - text
+  output_modalities:
+  - text

@@ -1,0 +1,62 @@
+---
+id: uprelic
+name: Uprelic
+logo: uprelic.png
+country: Germany
+blurb: Strom is a native decision model that returns typed answers and calibrated
+  probabilities without generating prose. Standard requests are processed in Helsinki
+  and retained for 90 days, never for training. Its stronger zero-retention endpoint
+  is enabled on request and costs 20% more; it excludes request content from application
+  records and backups, although infrastructure diagnostics and crash dumps remain
+  outside that guarantee.
+urls:
+  homepage:
+    label: Homepage
+    url: https://platform.uprelic.com/
+  docs:
+    label: API docs
+    url: https://platform.uprelic.com/docs
+  pricing:
+    label: Pricing
+    url: https://platform.uprelic.com/docs/pricing
+  zdr:
+    label: Zero data retention
+    url: https://platform.uprelic.com/docs/zero-data-retention
+  privacy:
+    label: Privacy policy
+    url: https://platform.uprelic.com/legal/privacy
+  dpa:
+    label: Data processing addendum
+    url: https://platform.uprelic.com/legal/dpa
+  terms:
+    label: Terms
+    url: https://platform.uprelic.com/legal/terms
+regions:
+- id: fi-hel2
+  label: Helsinki, Finland (fi-hel2)
+  description: Strom inference runs on UpCloud GPU servers in its Helsinki, Finland,
+    fi-hel2 region. Uprelic states that no third-party AI provider receives request
+    content.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+models:
+- model_id: strom-1.0.7
+  vendor_model_id: strom-1.0.7
+  api_model: strom-1.0.7
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.0366
+      unit: M
+      dp: 4
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fi-hel2
+  note: video is sent frame by frame
+backend_enabled: false

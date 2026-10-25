@@ -1,0 +1,50 @@
+---
+id: multiverse-computing
+name: Multiverse Computing
+logo:
+homepage_featured: false
+country: es
+url:
+blurb:
+models:
+- id: quasar-1-2-358b
+  name: Quasar 1.2 358B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: CompactifAI-compressed 358B reasoning model based on the GLM architecture.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: quasar-438b
+  name: Quasar 438B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: CompactifAI-compressed 438B reasoning model based on the GLM architecture.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: carina-60b
+  name: Carina 60B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: CompactifAI-compressed 60B reasoning model based on the GPT-OSS architecture.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: whisper-large-v3-turbo-slim
+  name: Whisper Large v3 Turbo Slim
+  type: Speech
+  release_date:
+  aa_score:
+  blurb: CompactifAI-compressed speech-recognition model based on Whisper Large v3
+    Turbo.
+  input_modalities:
+  - audio
+  output_modalities:
+  - text

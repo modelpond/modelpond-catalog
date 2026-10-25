@@ -1,0 +1,340 @@
+---
+id: ovh
+name: OVHcloud
+logo: ovh.svg
+country: France
+blurb: States that data is not stored or shared during or after model use. AI Endpoints
+  inference is hosted in OVHcloud data centres in Gravelines, France.
+urls:
+  homepage:
+    label: Homepage
+    url: https://www.ovhcloud.com/
+  privacy:
+    label: Personal data protection
+    url: https://www.ovhcloud.com/en-gb/personal-data-protection/
+  service_capabilities:
+    label: AI Endpoints capabilities
+    url: https://docs.ovhcloud.com/en/guides/public-cloud/ai-machine-learning/ai-endpoints-capabilities/
+  contracts:
+    label: Contracts
+    url: https://www.ovhcloud.com/en-gb/terms-and-conditions/contracts/
+  security:
+    label: Security
+    url: https://www.ovhcloud.com/en-gb/security/
+  service:
+    label: AI Endpoints
+    url: https://www.ovhcloud.com/en-gb/public-cloud/ai-endpoints/
+regions:
+- id: gra
+  label: Gravelines, France (GRA)
+  description: AI Endpoints inference is hosted in OVHcloud's GRA data centre in Gravelines,
+    France. Gravelines is the serving region for the managed serverless service; AI
+    Deploy is a separate product and is not included here.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+models:
+- model_id: qwen-3-8-27b
+  vendor_model_id: qwen3.8-27b
+  api_model: Qwen3.8-27B
+  flagship: true
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.4
+      unit: M
+    output:
+      value: 2.7
+      unit: M
+  serving_regions:
+  - gra
+- model_id: gpt-oss-20b
+  vendor_model_id: gpt-oss-20b
+  api_model: gpt-oss-20b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.04
+      unit: M
+    output:
+      value: 0.15
+      unit: M
+  serving_regions:
+  - gra
+- model_id: qwen-3-5-9b
+  vendor_model_id: qwen3.5-9b
+  api_model: Qwen3.5-9B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0.15
+      unit: M
+  serving_regions:
+  - gra
+- model_id: gpt-oss-120b
+  vendor_model_id: gpt-oss-120b
+  api_model: gpt-oss-120b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.08
+      unit: M
+    output:
+      value: 0.4
+      unit: M
+  serving_regions:
+  - gra
+- model_id: llama-3-3-70b-instruct
+  vendor_model_id: llama-3.3-70b-instruct
+  api_model: Llama-3.3-70B-Instruct
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.67
+      unit: M
+    output:
+      value: 0.67
+      unit: M
+  serving_regions:
+  - gra
+- model_id: qwen-2-5-vl-72b-instruct
+  vendor_model_id: qwen2.5-vl-72b-instruct
+  api_model: Qwen2.5-VL-72B-Instruct
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.91
+      unit: M
+    output:
+      value: 0.91
+      unit: M
+  serving_regions:
+  - gra
+- model_id: qwen-3-6-27b
+  vendor_model_id: qwen3.6-27b
+  api_model: Qwen3.6-27B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.4
+      unit: M
+    output:
+      value: 2.7
+      unit: M
+  serving_regions:
+  - gra
+- model_id: qwen-3-5-397b
+  vendor_model_id: qwen3.5-397b-a17b
+  api_model: Qwen3.5-397B-A17B
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.6
+      unit: M
+    output:
+      value: 3.6
+      unit: M
+  serving_regions:
+  - gra
+- model_id: whisper-large-v3
+  vendor_model_id: whisper-large-v3
+  api_model: whisper-large-v3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.0024
+      unit: min
+      dp: 4
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: whisper-large-v3-turbo
+  vendor_model_id: whisper-large-v3-turbo
+  api_model: whisper-large-v3-turbo
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.0008
+      unit: min
+      dp: 4
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: nvr-tts-en-us
+  vendor_model_id: nvidia-riva-tts
+  api_model: nvr-tts-en-us
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: nvr-tts-de-de
+  vendor_model_id: nvidia-riva-tts
+  api_model: nvr-tts-de-de
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: nvr-tts-es-es
+  vendor_model_id: nvidia-riva-tts
+  api_model: nvr-tts-es-es
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: nvr-tts-it-it
+  vendor_model_id: nvidia-riva-tts
+  api_model: nvr-tts-it-it
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: stable-diffusion-xl
+  vendor_model_id: stable-diffusion-xl
+  api_model: stable-diffusion-xl
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: qwen-guard-gen-8b
+  vendor_model_id: qwen3guard-gen-8b
+  api_model: qwen-guard-gen-8b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: qwen-guard-gen-06b
+  vendor_model_id: qwen3guard-gen-06b
+  api_model: qwen-guard-gen-06b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0
+      unit:
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: bge-m3
+  vendor_model_id: bge-m3
+  api_model: bge-m3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.01
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: bge-multilingual-gemma2
+  vendor_model_id: bge-multilingual-gemma2
+  api_model: bge-multilingual-gemma2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.01
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+- model_id: qwen3-embedding-8b
+  vendor_model_id: qwen3-embedding-8b
+  api_model: qwen3-embedding-8b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - gra
+backend_enabled: false

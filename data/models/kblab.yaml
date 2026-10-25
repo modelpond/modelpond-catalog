@@ -1,0 +1,19 @@
+---
+id: kblab
+name: KBLab
+logo:
+homepage_featured: false
+country: se
+url:
+blurb:
+models:
+- id: kb-whisper-large
+  name: KB Whisper Large
+  type: Speech
+  release_date:
+  aa_score:
+  blurb: Whisper Large v3 fine-tuned for Swedish and Nordic speech.
+  input_modalities:
+  - audio
+  output_modalities:
+  - text

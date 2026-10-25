@@ -1,0 +1,49 @@
+---
+id: microsoft
+name: Microsoft
+logo:
+homepage_featured: false
+country: us
+url:
+blurb:
+models:
+- id: paraphrase-multilingual-mpnet-base-v2
+  name: Paraphrase Multilingual MPNet Base v2
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Older multilingual embedding model, cheap and small.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: multilingual-e5-large-instruct
+  name: Multilingual E5 Large Instruct
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Instruction-tuned multilingual embedding model.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: multilingual-e5-large
+  name: Multilingual E5 Large
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Multilingual embedding model without instruction tuning.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: e5-mistral-7b-instruct
+  name: E5 Mistral 7B Instruct
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Embedding model built on Mistral 7B, English-focused.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding

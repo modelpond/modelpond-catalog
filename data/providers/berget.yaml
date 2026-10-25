@@ -1,0 +1,222 @@
+---
+id: berget
+name: Berget AI
+logo: berget.svg
+country: Sweden
+blurb: Runs open models under Swedish jurisdiction with zero data retention, positioned
+  against GDPR, NIS2 and Schrems II. Cached input tokens are billed at the same rate
+  as uncached ones.
+urls:
+  homepage:
+    label: Homepage
+    url: https://berget.ai/
+  models:
+    label: Models
+    url: https://berget.ai/en/models
+  pricing:
+    label: Pricing
+    url: https://berget.ai/en/pricing
+  privacy:
+    label: Privacy
+    url: https://berget.ai/en/privacy
+  terms:
+    label: Terms
+    url: https://berget.ai/en/terms
+  security:
+    label: Security
+    url: https://berget.ai/en/security
+regions:
+- id: se
+  label: Sweden
+  description: Inference runs on Berget AI hardware in Sweden under Swedish jurisdiction.
+    Berget states that its data centres are in Sweden, data never leaves its premises,
+    and its infrastructure is EU-only with no US entity involvement.
+  endpoint: https://api.berget.ai/v1
+  api_convention: open_ai
+  api_key: BERGET_API_KEY
+  backend_enabled: true
+models:
+- model_id: qwen3.8-27b-fp8
+  vendor_model_id: qwen3.8-27b
+  api_model: Qwen/Qwen3.8-27B-FP8
+  flagship: true
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.4
+      unit: M
+    output:
+      value: 3
+      unit: M
+  serving_regions:
+  - se
+- model_id: kimi-k3
+  vendor_model_id: kimi-k3
+  api_model: moonshotai/Kimi-K3
+  flagship: true
+  backend_enabled: true
+  pricing:
+    currency: EUR
+    input:
+      value: 3
+      unit: M
+    output:
+      value: 15
+      unit: M
+  serving_regions:
+  - se
+  input_modalities:
+  - text
+  profiles:
+  - id: -7
+    display_name: Kimi K3
+    selectable: true
+    legacy: false
+    assigned_by: system
+- model_id: glm-5.3-flash
+  vendor_model_id: glm-5.3-flash
+  api_model: zai-org/GLM-5.3-Flash
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.25
+      unit: M
+    output:
+      value: 0.5
+      unit: M
+  serving_regions:
+  - se
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- model_id: gemma-4-31b-it
+  vendor_model_id: gemma-4-31b-it
+  api_model: google/gemma-4-31B-it
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.25
+      unit: M
+    output:
+      value: 0.5
+      unit: M
+  serving_regions:
+  - se
+- model_id: mistral-small-3.2-24b-instruct-2506
+  vendor_model_id: mistral-small-3.2-24b-instruct-2506
+  api_model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.3
+      unit: M
+    output:
+      value: 0.3
+      unit: M
+  serving_regions:
+  - se
+- model_id: faster-whisper-large-v3
+  vendor_model_id: faster-whisper-large-v3
+  api_model: Systran/faster-whisper-large-v3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.00198
+      unit: min
+      dp: 5
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - se
+  note: 1.98 per 1000 minutes
+- model_id: kb-whisper-large
+  vendor_model_id: kb-whisper-large
+  api_model: KBLab/kb-whisper-large
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.00198
+      unit: min
+      dp: 5
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - se
+  note: 1.98 per 1000 minutes
+- model_id: nb-whisper-large
+  vendor_model_id: nb-whisper-large
+  api_model: NbAiLab/nb-whisper-large
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.00198
+      unit: min
+      dp: 5
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - se
+  note: 1.98 per 1000 minutes
+- model_id: bge-reranker-v2-m3
+  vendor_model_id: bge-reranker-v2-m3
+  api_model: BAAI/bge-reranker-v2-m3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.1
+      unit: M
+    output:
+      value: 0.1
+      unit: M
+  serving_regions:
+  - se
+- model_id: multilingual-e5-large-instruct
+  vendor_model_id: multilingual-e5-large-instruct
+  api_model: intfloat/multilingual-e5-large-instruct
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.03
+      unit: M
+    output:
+      value: 0.02
+      unit: M
+  serving_regions:
+  - se
+- model_id: multilingual-e5-large
+  vendor_model_id: multilingual-e5-large
+  api_model: intfloat/multilingual-e5-large
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.03
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - se
+backend_enabled: true

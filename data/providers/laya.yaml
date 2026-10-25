@@ -1,0 +1,95 @@
+---
+id: laya
+name: Laya Studio
+logo: laya.svg
+country: Switzerland
+blurb: Hosts the open-weight, non-autoregressive Laya decision model in Switzerland.
+  Direct decision requests keep no request content, never train on it, and retain
+  only metadata for 30 days. Swiss-only mode prevents failover outside Switzerland
+  for a 15% surcharge. The optional chat agent uses a separate planning LLM, so this
+  catalogue entry covers only the direct System One API.
+urls:
+  homepage:
+    label: Homepage
+    url: https://laya.studio/
+  docs:
+    label: API docs
+    url: https://laya.studio/docs
+  pricing:
+    label: Pricing
+    url: https://laya.studio/pricing
+  data_residency:
+    label: Swiss data residency
+    url: https://laya.studio/swiss-data-residency
+  privacy:
+    label: Privacy policy
+    url: https://laya.studio/privacy
+  dpa:
+    label: Data processing addendum
+    url: https://laya.studio/dpa
+  terms:
+    label: Terms
+    url: https://laya.studio/terms
+regions:
+- id: ch
+  label: Switzerland
+  description: The primary inference pool runs on dedicated GPUs in Switzerland and
+    the account database is in Zurich. Swiss-only mode guarantees that requests are
+    never answered outside Switzerland; without that mode, inference may fail over
+    to a cloud GPU abroad.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+models:
+- model_id: english
+  vendor_model_id: laya-english
+  api_model: english
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.0311
+      unit: M
+      dp: 4
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - ch
+- model_id: multilingual
+  vendor_model_id: laya-multilingual
+  api_model: multilingual
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.0311
+      unit: M
+      dp: 4
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - ch
+  note: 100+ languages
+- model_id: typed-decisions
+  vendor_model_id: laya-typed-decisions
+  api_model: typed-decisions
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.0311
+      unit: M
+      dp: 4
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - ch
+  note: explicit checkpoint
+backend_enabled: false

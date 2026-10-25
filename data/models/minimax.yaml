@@ -1,0 +1,20 @@
+---
+id: minimax
+name: MiniMax
+logo:
+homepage_featured: false
+country: cn
+url:
+blurb:
+models:
+- id: minimax-m3
+  name: MiniMax M3
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Open-weight long-context model for coding, agents and multimodal input.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text

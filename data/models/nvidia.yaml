@@ -1,0 +1,19 @@
+---
+id: nvidia
+name: NVIDIA
+logo:
+homepage_featured: false
+country: us
+url:
+blurb:
+models:
+- id: nvidia-riva-tts
+  name: NVIDIA Riva TTS
+  type: Speech
+  release_date:
+  aa_score:
+  blurb: Placeholder
+  input_modalities:
+  - text
+  output_modalities:
+  - audio

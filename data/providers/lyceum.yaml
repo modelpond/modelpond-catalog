@@ -1,0 +1,474 @@
+---
+id: lyceum
+name: Lyceum
+logo: lyceum.svg
+country: Germany
+blurb: Runs open-weight models on serverless GPUs in Paris and Finland with an OpenAI-compatible
+  API. Its legal documentation says prompts and outputs are never written to disk
+  or logged, request records contain usage metadata but no prompt or response text,
+  and recent prompt prefixes exist only in GPU memory as a cache. Dedicated endpoint
+  locations are agreed per workload, including a requested EU location. The DPA covers
+  GDPR processing; ISO 27001 audit is in progress, not yet certified.
+urls:
+  homepage:
+    label: Homepage
+    url: https://lyceum.technology/
+  models:
+    label: Models
+    url: https://lyceum.technology/models/
+  pricing:
+    label: Pricing
+    url: https://lyceum.technology/resources/pricing/
+  data_handling:
+    label: Data handling
+    url: https://lyceum.technology/legal/
+  privacy:
+    label: Privacy policy
+    url: https://lyceum.technology/legal/privacy/
+  terms:
+    label: Terms and DPA
+    url: https://lyceum.technology/legal/terms/
+  security:
+    label: Security controls
+    url: https://trust.lyceum.technology/controls
+regions:
+- id: paris
+  label: Paris
+  description: Lyceum serverless inference runs on GPU compute in Paris, France.
+  endpoint: https://api.lyceum.technology/openai/v1
+  api_convention: open_ai
+  api_key:
+  backend_enabled: false
+- id: finland
+  label: Finland
+  description: Lyceum serverless inference runs on GPU compute in Finland.
+  endpoint: https://api.lyceum.technology/openai/v1
+  api_convention: open_ai
+  api_key:
+  backend_enabled: false
+models:
+- model_id: deepseek-v4.1-flash
+  vendor_model_id: deepseek-v4.1-flash
+  api_model: deepseek/deepseek-v4.1-flash
+  flagship: true
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.436
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.113
+      unit: M
+      dp: 3
+    output:
+      value: 1.309
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: glm-5.3
+  vendor_model_id: glm-5.3
+  api_model: z-ai/glm-5.3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.221
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.227
+      unit: M
+      dp: 3
+    output:
+      value: 3.838
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: kimi-k3
+  vendor_model_id: kimi-k3
+  api_model: moonshotai/kimi-k3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 2.617
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.654
+      unit: M
+      dp: 3
+    output:
+      value: 13.086
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: glm-5.3-flash
+  vendor_model_id: glm-5.3-flash
+  api_model: z-ai/glm-5.3-flash
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.174
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.044
+      unit: M
+      dp: 3
+    output:
+      value: 0.436
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+  output_modalities:
+  - text
+- model_id: deepseek-v4-pro-0813
+  vendor_model_id: deepseek-v4-pro-0813
+  api_model: deepseek/deepseek-v4-pro-0813
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.745
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.436
+      unit: M
+      dp: 3
+    output:
+      value: 3.489
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: kimi-k2.7-code
+  vendor_model_id: kimi-k2.7-code
+  api_model: moonshotai/kimi-k2.7-code
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.09
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.27
+      unit: M
+      dp: 3
+    output:
+      value: 3.926
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+  note: also accepts PDFs
+- model_id: qwen3.8-2.4t-a95b
+  vendor_model_id: qwen3.8-2.4t-a95b
+  api_model: qwen/qwen3.8-2.4t-a95b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 2.181
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.55
+      unit: M
+      dp: 3
+    output:
+      value: 5.234
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: qwen3.8-flash-next
+  vendor_model_id: qwen3.8-flash-next
+  api_model: qwen/qwen3.8-flash-next
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.174
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.044
+      unit: M
+      dp: 3
+    output:
+      value: 0.436
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: minimax-m3
+  vendor_model_id: minimax-m3
+  api_model: minimax/minimax-m3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.349
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.087
+      unit: M
+      dp: 3
+    output:
+      value: 1.745
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: glm-5.2
+  vendor_model_id: glm-5.2
+  api_model: z-ai/glm-5.2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.309
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.332
+      unit: M
+      dp: 3
+    output:
+      value: 3.926
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: qwen3-embedding-8b
+  vendor_model_id: qwen3-embedding-8b
+  api_model: qwen/qwen3-embedding-8b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.017
+      unit: M
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - paris
+  - finland
+- model_id: qwen3.8-27b
+  vendor_model_id: qwen3.8-27b
+  api_model: qwen/qwen3.8-27b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.349
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.087
+      unit: M
+      dp: 3
+    output:
+      value: 2.094
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: deepseek-v4-flash-0731
+  vendor_model_id: deepseek-v4-flash-0731
+  api_model: deepseek/deepseek-v4-flash-0731
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.218
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.052
+      unit: M
+      dp: 3
+    output:
+      value: 0.262
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+- model_id: deepseek-v4-pro
+  vendor_model_id: deepseek-v4-pro
+  api_model: deepseek/deepseek-v4-pro
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.527
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.384
+      unit: M
+      dp: 3
+    output:
+      value: 3.053
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+  note: capabilities not confirmed
+- model_id: qwen3.8-27b-instant
+  vendor_model_id: qwen3.8-27b
+  api_model: qwen/qwen3.8-27b-instant
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.349
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.087
+      unit: M
+      dp: 3
+    output:
+      value: 2.094
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+  note: Instant variant
+- model_id: qwen3.8-flash-next-instant
+  vendor_model_id: qwen3.8-flash-next
+  api_model: qwen/qwen3.8-flash-next-instant
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.174
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.044
+      unit: M
+      dp: 3
+    output:
+      value: 0.436
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+  note: Instant variant
+- model_id: glm-5.2-instant
+  vendor_model_id: glm-5.2
+  api_model: z-ai/glm-5.2-instant
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.309
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.332
+      unit: M
+      dp: 3
+    output:
+      value: 3.926
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+  note: Instant variant
+- model_id: glm-5.3-flash-instant
+  vendor_model_id: glm-5.3-flash
+  api_model: z-ai/glm-5.3-flash-instant
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 0.174
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.044
+      unit: M
+      dp: 3
+    output:
+      value: 0.436
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+  note: Instant variant
+  output_modalities:
+  - text
+- model_id: glm-5.3-instant
+  vendor_model_id: glm-5.3
+  api_model: z-ai/glm-5.3-instant
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: USD
+    input:
+      value: 1.221
+      unit: M
+      dp: 3
+    cached_input:
+      value: 0.227
+      unit: M
+      dp: 3
+    output:
+      value: 3.838
+      unit: M
+      dp: 3
+  serving_regions:
+  - paris
+  - finland
+  note: Instant variant
+backend_enabled: false

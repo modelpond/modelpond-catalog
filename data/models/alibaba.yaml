@@ -1,0 +1,256 @@
+---
+id: alibaba
+name: Alibaba
+logo: qwen.svg
+homepage_featured: true
+full_name: Alibaba Cloud
+country: cn
+url:
+blurb:
+models:
+- id: qwen3.8-27b
+  name: Qwen3.8 27B
+  type: Text
+  release_date: '2026-08-14'
+  aa_score: 33.7
+  aa_report_url: https://artificialanalysis.ai/models/qwen3-8-27b
+  blurb: Alibaba's newest mid-size model, scoring 33.7 with image input and reasoning
+    built in over a 262K context window. It is also the most widely hosted model here,
+    with five providers and a spread from EUR 2.36 to EUR 3.30 per million output
+    tokens, so it is the obvious default when you want capability and the freedom
+    to move on price.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+  effort_settings:
+    supported:
+    - none
+    - low
+    - medium
+    - high
+    - max
+    default: max
+- id: qwen3.6-27b
+  name: Qwen3.6 27B
+  type: Text
+  release_date: '2026-04-22'
+  aa_score: 21.43
+  blurb: The generation before 3.8, built around coding and technical reasoning with
+    a 262K context window.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen3.5-397b-a17b
+  name: Qwen3.5 397B A17B
+  type: Text
+  release_date: '2026-02-16'
+  aa_score: 18.42
+  blurb: A 397B sparse mixture-of-experts model with vision input; the largest open
+    weights in this catalogue.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen3.5-9b
+  name: Qwen3.5 9B
+  type: Text
+  release_date: '2026-03-02'
+  aa_score: 13.65
+  blurb: Small vision-language model intended for cheap, high-volume work.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen3-235b-a22b-instruct-2507
+  name: Qwen3 235B A22B Instruct 2507
+  type: Text
+  release_date: '2025-07-21'
+  aa_score: 12
+  blurb: July 2025 revision of the Qwen3 235B mixture-of-experts model, instruction-tuned.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: qwen3-vl-235b-a22b
+  name: Qwen3-VL 235B A22B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Vision-language flagship, read here as an 8-bit quantised build. Not scored
+    by Artificial Analysis.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen2.5-vl-72b-instruct
+  name: Qwen2.5-VL 72B Instruct
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Older 72B vision-language model with a short 32K context.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen3-coder-next-80b
+  name: Qwen3 Coder Next 80B
+  type: Text
+  release_date: '2026-02-03'
+  aa_score: 9.24
+  blurb: Coding specialist tuned for repository-scale editing and long tool-calling
+    loops.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: qwen3-embedding-8b
+  name: Qwen3 Embedding 8B
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Text embedding model returning vectors; charged on input only.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: qwen3-embedding-4b
+  name: Qwen3 Embedding 4B
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Multilingual embedding model with configurable output dimensions, charged
+    on input only.
+  input_modalities:
+  - text
+  output_modalities:
+  - embedding
+- id: qwen3-vl-embedding-8b
+  name: Qwen3-VL Embedding 8B
+  type: Embeddings
+  release_date:
+  aa_score:
+  blurb: Embedding model that accepts images as well as text.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - embedding
+- id: qwen3-vl-reranker-8b
+  name: Qwen3-VL Reranker 8B
+  type: Rerankers
+  release_date:
+  aa_score:
+  blurb: Reranker for retrieved results, accepting text and images against a query.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - reranker
+- id: qwen3guard-gen-8b
+  name: Qwen3Guard Gen 8B
+  type: Moderation
+  release_date:
+  aa_score:
+  blurb: Moderation classifier for screening prompts and outputs. Zero-rated by its
+    host.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: qwen3guard-gen-06b
+  name: Qwen3Guard Gen 0.6B
+  type: Moderation
+  release_date:
+  aa_score:
+  blurb: Smaller variant of the same moderation classifier. Zero-rated by its host.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: qwen3.6-35b-a3b
+  name: Qwen3.6 35B A3B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Sparse mixture-of-experts model from the 3.6 generation, with image input.
+    Not scored by Artificial Analysis.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen3.8-2.4t-a95b
+  name: Qwen3.8 2.4T A95B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Alibaba's 2.4-trillion-parameter flagship for frontier-level reasoning and
+    long-horizon agent work.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: qwen3.8-flash-next
+  name: Qwen3.8 Flash Next
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Efficient multimodal Qwen model with a 6B-active-parameter mixture-of-experts
+    architecture.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen3.5-122b-a10b
+  name: Qwen3.5 122B A10B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Vision-language mixture-of-experts model for long documents, reasoning and
+    multilingual work.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen3.5-4b
+  name: Qwen3.5 4B
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Small vision-language model for high-volume classification, extraction and
+    routing.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: qwen3-reranker-4b
+  name: Qwen3 Reranker 4B
+  type: Rerankers
+  release_date:
+  aa_score:
+  blurb: Larger Qwen reranking model for multilingual retrieval workloads.
+  input_modalities:
+  - text
+  output_modalities:
+  - reranker
+- id: qwen-image
+  name: Qwen-Image
+  type: Image
+  release_date:
+  aa_score:
+  blurb: Text-to-image generation model billed by output megapixel.
+  input_modalities:
+  - text
+  output_modalities:
+  - image

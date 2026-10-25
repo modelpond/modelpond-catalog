@@ -1,0 +1,207 @@
+---
+id: privatemode
+name: Privatemode AI
+logo: privatemode.svg
+country: Germany
+blurb: 'Edgeless Systems'' confidential-computing service encrypts prompts on the
+  client and processes them only inside hardware-attested environments on Scaleway
+  and Lyceum infrastructure in the EU. Request and response bodies are not retained
+  after completion and are not used for training; operational metadata is kept for
+  up to 90 days and token counts permanently for billing. Use the SDK or local encryption
+  proxy for client-verifiable attestation: the hosted proxyless API provides memory
+  encryption but not that verification.'
+urls:
+  homepage:
+    label: Homepage
+    url: https://www.privatemode.ai/
+  models:
+    label: Models
+    url: https://www.privatemode.ai/models
+  pricing:
+    label: Pricing
+    url: https://www.privatemode.ai/pricing
+  security:
+    label: Security and encryption
+    url: https://www.privatemode.ai/security-and-encryption
+  data_retention:
+    label: Data retention
+    url: https://docs.privatemode.ai/security/trust-and-compliance/#data-processing-and-retention
+  privacy:
+    label: Privacy policy
+    url: https://www.privatemode.ai/privacy-policy
+  terms:
+    label: Terms
+    url: https://www.privatemode.ai/terms-of-service
+  dpa:
+    label: Data processing addendum
+    url: https://www.privatemode.ai/dpa
+regions:
+- id: fr
+  label: France
+  description: Privatemode runs on confidential-computing infrastructure provided
+    by Scaleway in France. Prompts and responses are processed only inside the EU.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+- id: de
+  label: Germany
+  description: Privatemode runs on confidential-computing infrastructure provided
+    by Lyceum in Germany. Prompts and responses are processed only inside the EU.
+  endpoint:
+  api_convention:
+  api_key:
+  backend_enabled: false
+models:
+- model_id: glm-5.3
+  vendor_model_id: glm-5.3
+  api_model: glm-5.3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 1.55
+      unit: M
+    cached_input:
+      value: 0.15
+      unit: M
+    output:
+      value: 5.74
+      unit: M
+  serving_regions:
+  - fr
+  - de
+- model_id: glm-5.3-flash
+  vendor_model_id: glm-5.3-flash
+  api_model: glm-5.3-flash
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.2
+      unit: M
+    cached_input:
+      value: 0.05
+      unit: M
+    output:
+      value: 0.65
+      unit: M
+  serving_regions:
+  - fr
+  - de
+  output_modalities:
+  - text
+- model_id: gpt-oss-120b
+  vendor_model_id: gpt-oss-120b
+  api_model: gpt-oss-120b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.2
+      unit: M
+    cached_input:
+      value: 0.04
+      unit: M
+    output:
+      value: 0.65
+      unit: M
+  serving_regions:
+  - fr
+  - de
+- model_id: deepseek-ocr-2
+  vendor_model_id: deepseek-ocr-2
+  api_model: deepseek-ocr-2
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.77
+      unit: M
+    cached_input:
+      value: 0.08
+      unit: M
+    output:
+      value: 1.27
+      unit: M
+  serving_regions:
+  - fr
+  - de
+  note: Preview
+- model_id: qwen3-embedding-4b
+  vendor_model_id: qwen3-embedding-4b
+  api_model: qwen3-embedding-4b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.13
+      unit: M
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr
+  - de
+- model_id: voxtral-mini-3b
+  vendor_model_id: voxtral-mini-3b
+  api_model: voxtral-mini-3b
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.004
+      unit: min
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr
+  - de
+- model_id: whisper-large-v3
+  vendor_model_id: whisper-large-v3
+  api_model: whisper-large-v3
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.014
+      unit: min
+      dp: 3
+    output:
+      value: 0
+      unit:
+  serving_regions:
+  - fr
+  - de
+- model_id: system-one/glm-5.3-flash
+  vendor_model_id: glm-5.3-flash-system-one
+  api_model: glm-5.3-flash
+  flagship: false
+  backend_enabled: false
+  pricing:
+    currency: EUR
+    input:
+      value: 0.2
+      unit: M
+    cached_input:
+      value: 0.05
+      unit: M
+    output:
+      value: 0.65
+      unit: M
+  serving_regions:
+  - fr
+  - de
+  note: Single-token decision configuration
+  output_modalities:
+  - typed_decision
+backend_enabled: false

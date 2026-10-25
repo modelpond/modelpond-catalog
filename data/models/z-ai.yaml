@@ -1,0 +1,68 @@
+---
+id: z-ai
+name: Z AI
+logo: zai.svg
+homepage_featured: true
+full_name: Z.ai
+country: cn
+url:
+blurb:
+models:
+- id: glm-5.2
+  name: GLM-5.2
+  type: Text
+  release_date: '2026-06-16'
+  aa_score: 33.71
+  blurb: 'Scores 33.7, level with the other mid-tier flagships, and its distinguishing
+    feature is reach: a one-million-token context window, so an entire codebase or
+    document set fits in a single request. Z AI''s strongest hosted configuration
+    here, and the pick for long-context agentic work.'
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+  effort_settings:
+    supported:
+    - high
+    - max
+    default: max
+- id: glm-5.3-flash
+  name: GLM 5.3 Flash
+  type: Text
+  release_date: '2026-08-26'
+  aa_score: 41.81
+  blurb: Cheap, fast variant of GLM 5.3 that still scores near the top of the index.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+- id: glm-5.3-flash-system-one
+  name: GLM 5.3 Flash System One
+  type: System One
+  release_date: '2026-08-26'
+  aa_score: 41.81
+  blurb: Single-token System One configuration of GLM 5.3 Flash for typed decisions.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - typed_decision
+- id: glm-5.3
+  name: GLM-5.3
+  type: Text
+  release_date: '2026-09-15'
+  aa_score: 45
+  aa_report_url: https://artificialanalysis.ai/models/glm-5-3
+  blurb: Z AI's successor to GLM-5.2. Mistral serves it unmodified as one of the third-party
+    models it hosts.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+  effort_settings:
+    supported:
+    - low
+    - high
+    - max
+    default: max

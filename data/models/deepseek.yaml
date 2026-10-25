@@ -1,0 +1,75 @@
+---
+id: deepseek
+name: DeepSeek
+logo: deepseek.svg
+homepage_featured: true
+country: cn
+url: https://www.deepseek.com/
+blurb:
+models:
+- id: deepseek-v4-flash-0731
+  name: DeepSeek V4 Flash 0731
+  type: Text
+  release_date: '2026-07-31'
+  aa_score: 34.33
+  aa_report_url: https://artificialanalysis.ai/models/deepseek-v4-flash
+  blurb: 'Level with the other mid-tier flagships at 34.3, and an order of magnitude
+    cheaper: EUR 0.80 per million output tokens against Kimi K3''s EUR 15.00, with
+    cached input at EUR 0.08. A million-token context window and high throughput make
+    it the model to run at volume.'
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: deepseek-v4.1-flash
+  name: DeepSeek V4.1 Flash
+  type: Text
+  release_date:
+  aa_score: 39
+  aa_report_url: https://artificialanalysis.ai/models/deepseek-v4-1-flash
+  blurb: Multimodal mixture-of-experts model built for fast, capable general-purpose
+    inference.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+  effort_settings:
+    supported:
+    - none
+    - low
+    - high
+    - max
+    default: high
+- id: deepseek-v4-pro-0813
+  name: DeepSeek V4 Pro 0813
+  type: Text
+  release_date: '2026-08-13'
+  aa_score:
+  blurb: DeepSeek's large V4 model for reasoning, coding and long-running agent work.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: deepseek-v4-pro
+  name: DeepSeek V4 Pro
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Large mixture-of-experts model aimed at complex coding, reasoning and agent
+    workflows.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: deepseek-ocr-2
+  name: DeepSeek OCR 2
+  type: Image
+  release_date:
+  aa_score:
+  blurb: Document OCR model returning structured text from images.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text

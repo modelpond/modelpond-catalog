@@ -1,0 +1,39 @@
+---
+id: regolo
+name: Regolo
+logo:
+homepage_featured: false
+country: it
+url:
+blurb:
+models:
+- id: clef-flash
+  name: Clef Flash
+  type: System One
+  release_date:
+  aa_score:
+  blurb: Low-cost decision model used to route or classify requests before generation.
+  input_modalities:
+  - text
+  output_modalities:
+  - typed_decision
+- id: brick-complexity-pro
+  name: Brick Complexity Pro
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Small text model used for inexpensive complexity classification and routing.
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: brick-v1-beta
+  name: Brick v1 Beta
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Experimental zero-rated text model in Regolo's library.
+  input_modalities:
+  - text
+  output_modalities:
+  - text

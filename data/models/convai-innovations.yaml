@@ -1,0 +1,39 @@
+---
+id: convai-innovations
+name: Convai Innovations
+logo:
+homepage_featured: false
+country: us
+url:
+blurb:
+models:
+- id: laya-english
+  name: Laya English
+  type: System One
+  release_date:
+  aa_score:
+  blurb: English System One checkpoint for calibrated choice, score and yes/no decisions.
+  input_modalities:
+  - text
+  output_modalities:
+  - typed_decision
+- id: laya-multilingual
+  name: Laya Multilingual
+  type: System One
+  release_date:
+  aa_score:
+  blurb: Multilingual System One checkpoint covering more than 100 languages.
+  input_modalities:
+  - text
+  output_modalities:
+  - typed_decision
+- id: laya-typed-decisions
+  name: Laya Typed Decisions
+  type: System One
+  release_date:
+  aa_score:
+  blurb: Laya checkpoint fine-tuned for four structured decision workflows.
+  input_modalities:
+  - text
+  output_modalities:
+  - typed_decision
