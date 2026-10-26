@@ -864,14 +864,14 @@ mod tests {
         let catalog = data();
         assert_eq!(catalog.config.pricing_policy.currency, "EUR");
         assert_eq!(catalog.config.sections.len(), 7);
-        assert_eq!(catalog.providers.len(), 13);
+        assert_eq!(catalog.providers.len(), 14);
         assert_eq!(
             catalog
                 .providers
                 .iter()
                 .map(|provider| provider.models.len())
                 .sum::<usize>(),
-            148
+            163
         );
         assert_eq!(catalog.vendors.len(), 24);
         assert_eq!(
@@ -880,7 +880,7 @@ mod tests {
                 .iter()
                 .map(|vendor| vendor.models.len())
                 .sum::<usize>(),
-            86
+            88
         );
     }
 

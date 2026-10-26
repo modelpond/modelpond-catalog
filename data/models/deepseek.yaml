@@ -41,6 +41,26 @@ models:
     - high
     - max
     default: high
+- id: deepseek-v4.1-flash-1017
+  name: DeepSeek V4.1 Flash 1017
+  type: Text
+  release_date:
+  aa_score: 45.1
+  aa_report_url:
+  blurb: October 2026 refresh of DeepSeek V4.1 Flash with the same multimodal,
+    tool-oriented design and stronger benchmark results.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - text
+  effort_settings:
+    supported:
+    - none
+    - low
+    - high
+    - max
+    default: high
 - id: deepseek-v4-pro-0813
   name: DeepSeek V4 Pro 0813
   type: Text

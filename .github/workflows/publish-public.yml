@@ -54,6 +54,8 @@ jobs:
             "${GITHUB_WORKSPACE}/source/" \
             "${GITHUB_WORKSPACE}/publish/"
 
+          rm -rf -- publish/private/
+
           git -C publish config user.name "Model Pond Admin"
           git -C publish config user.email "github@modelpond.eu"
           git -C publish add -A
