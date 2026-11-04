@@ -9,7 +9,10 @@ blurb:
 models:
 - id: kimi-k3
   name: Kimi K3
+  family: Kimi
+  edition: '3'
   type: Text
+  flagship: true
   release_date: '2026-07-16'
   aa_score: 43.59
   aa_report_url: https://artificialanalysis.ai/models/kimi-k3
@@ -17,6 +20,7 @@ models:
     a few points of the best proprietary models at the frontier and clear of everything
     else listed here. This is the one to reach for when a task is genuinely hard and
     cost is secondary.
+  tokenizer_url: https://huggingface.co/moonshotai/Kimi-K3/resolve/main/tiktoken.model
   input_modalities:
   - image
   - text
@@ -30,6 +34,8 @@ models:
     default: max
 - id: kimi-k2.7-code
   name: Kimi K2.7 Code
+  family: Kimi
+  edition: '2.7 Code'
   type: Text
   release_date: '2026-06-12'
   aa_score:

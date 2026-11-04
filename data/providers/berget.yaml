@@ -34,13 +34,10 @@ regions:
   endpoint: https://api.berget.ai/v1
   api_convention: open_ai
   api_key: BERGET_API_KEY
-  backend_enabled: true
 models:
 - model_id: qwen3.8-27b-fp8
   vendor_model_id: qwen3.8-27b
   api_model: Qwen/Qwen3.8-27B-FP8
-  flagship: true
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -54,8 +51,6 @@ models:
 - model_id: kimi-k3
   vendor_model_id: kimi-k3
   api_model: moonshotai/Kimi-K3
-  flagship: true
-  backend_enabled: true
   pricing:
     currency: EUR
     input:
@@ -68,17 +63,9 @@ models:
   - se
   input_modalities:
   - text
-  profiles:
-  - id: -7
-    display_name: Kimi K3
-    selectable: true
-    legacy: false
-    assigned_by: system
 - model_id: glm-5.3-flash
   vendor_model_id: glm-5.3-flash
   api_model: zai-org/GLM-5.3-Flash
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -96,8 +83,6 @@ models:
 - model_id: gemma-4-31b-it
   vendor_model_id: gemma-4-31b-it
   api_model: google/gemma-4-31B-it
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -111,8 +96,6 @@ models:
 - model_id: mistral-small-3.2-24b-instruct-2506
   vendor_model_id: mistral-small-3.2-24b-instruct-2506
   api_model: mistralai/Mistral-Small-3.2-24B-Instruct-2506
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -126,8 +109,6 @@ models:
 - model_id: faster-whisper-large-v3
   vendor_model_id: faster-whisper-large-v3
   api_model: Systran/faster-whisper-large-v3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -143,8 +124,6 @@ models:
 - model_id: kb-whisper-large
   vendor_model_id: kb-whisper-large
   api_model: KBLab/kb-whisper-large
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -160,8 +139,6 @@ models:
 - model_id: nb-whisper-large
   vendor_model_id: nb-whisper-large
   api_model: NbAiLab/nb-whisper-large
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -177,8 +154,6 @@ models:
 - model_id: bge-reranker-v2-m3
   vendor_model_id: bge-reranker-v2-m3
   api_model: BAAI/bge-reranker-v2-m3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -192,8 +167,6 @@ models:
 - model_id: multilingual-e5-large-instruct
   vendor_model_id: multilingual-e5-large-instruct
   api_model: intfloat/multilingual-e5-large-instruct
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -207,8 +180,6 @@ models:
 - model_id: multilingual-e5-large
   vendor_model_id: multilingual-e5-large
   api_model: intfloat/multilingual-e5-large
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -219,4 +190,3 @@ models:
       unit:
   serving_regions:
   - se
-backend_enabled: true

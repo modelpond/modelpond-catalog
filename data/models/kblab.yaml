@@ -9,6 +9,9 @@ blurb:
 models:
 - id: kb-whisper-large
   name: KB Whisper Large
+  family: Whisper
+  edition: '3'
+  size: 'Large'
   type: Speech
   release_date:
   aa_score:

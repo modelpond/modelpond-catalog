@@ -9,6 +9,9 @@ blurb:
 models:
 - id: deepseek-v4-flash-0731
   name: DeepSeek V4 Flash 0731
+  family: DeepSeek
+  edition: '4 Flash'
+  checkpoint: '0731'
   type: Text
   release_date: '2026-07-31'
   aa_score: 34.33
@@ -17,18 +20,55 @@ models:
     cheaper: EUR 0.80 per million output tokens against Kimi K3''s EUR 15.00, with
     cached input at EUR 0.08. A million-token context window and high throughput make
     it the model to run at volume.'
+  tokenizer_url: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731/resolve/main/tokenizer.json
+  context_window_tokens: 1048576
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: deepseek-v4-pro-0813
+  name: DeepSeek V4 Pro 0813
+  family: DeepSeek
+  edition: '4 Pro'
+  checkpoint: '0813'
+  type: Text
+  release_date: '2026-08-13'
+  aa_score:
+  blurb: DeepSeek's large V4 model for reasoning, coding and long-running agent work.
+  tokenizer_url: https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro-0813/resolve/main/tokenizer.json
+  context_window_tokens: 1048576
+  input_modalities:
+  - text
+  output_modalities:
+  - text
+- id: deepseek-v4-pro
+  name: DeepSeek V4 Pro
+  family: DeepSeek
+  edition: '4 Pro'
+  type: Text
+  release_date:
+  aa_score:
+  blurb: Large mixture-of-experts model aimed at complex coding, reasoning and agent
+    workflows.
+  tokenizer_url: https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/resolve/main/tokenizer.json
+  context_window_tokens: 1048576
   input_modalities:
   - text
   output_modalities:
   - text
 - id: deepseek-v4.1-flash
   name: DeepSeek V4.1 Flash
+  family: DeepSeek
+  edition: '4.1 Flash'
   type: Text
+  flagship: true
   release_date:
   aa_score: 39
   aa_report_url: https://artificialanalysis.ai/models/deepseek-v4-1-flash
   blurb: Multimodal mixture-of-experts model built for fast, capable general-purpose
     inference.
+  tokenizer_url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/main/tokenizer.json
+  context_window_tokens: 1048576
   input_modalities:
   - image
   - text
@@ -43,12 +83,18 @@ models:
     default: high
 - id: deepseek-v4.1-flash-1017
   name: DeepSeek V4.1 Flash 1017
+  family: DeepSeek
+  edition: '4.1 Flash'
+  checkpoint: '1017'
   type: Text
+  flagship: true
   release_date:
   aa_score: 45.1
   aa_report_url:
   blurb: October 2026 refresh of DeepSeek V4.1 Flash with the same multimodal,
     tool-oriented design and stronger benchmark results.
+  tokenizer_url: https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/resolve/main/tokenizer.json
+  context_window_tokens: 1048576
   input_modalities:
   - image
   - text
@@ -61,33 +107,17 @@ models:
     - high
     - max
     default: high
-- id: deepseek-v4-pro-0813
-  name: DeepSeek V4 Pro 0813
-  type: Text
-  release_date: '2026-08-13'
-  aa_score:
-  blurb: DeepSeek's large V4 model for reasoning, coding and long-running agent work.
-  input_modalities:
-  - text
-  output_modalities:
-  - text
-- id: deepseek-v4-pro
-  name: DeepSeek V4 Pro
-  type: Text
-  release_date:
-  aa_score:
-  blurb: Large mixture-of-experts model aimed at complex coding, reasoning and agent
-    workflows.
-  input_modalities:
-  - text
-  output_modalities:
-  - text
 - id: deepseek-ocr-2
   name: DeepSeek OCR 2
+  family: DeepSeek
+  edition: 'OCR'
+  checkpoint: '2'
   type: Image
   release_date:
   aa_score:
   blurb: Document OCR model returning structured text from images.
+  tokenizer_url: https://huggingface.co/deepseek-ai/DeepSeek-OCR-2/resolve/main/tokenizer.json
+  context_window_tokens: 8192
   input_modalities:
   - image
   - text

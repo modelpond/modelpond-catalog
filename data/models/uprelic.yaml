@@ -9,6 +9,8 @@ blurb:
 models:
 - id: strom-1.0.7
   name: Strom 1.0.7
+  family: Strom
+  edition: '1.0.7'
   type: System One
   release_date:
   aa_score:

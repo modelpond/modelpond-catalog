@@ -9,10 +9,28 @@ blurb:
 models:
 - id: lightonocr-2-1b
   name: LightOnOCR 2 1B
+  family: LightOnOCR
+  edition: '2'
+  size: '1B'
   type: Image
   release_date:
   aa_score:
   blurb: Vision-language OCR model returning structured text.
+  input_modalities:
+  - image
+  output_modalities:
+  - text
+- id: lightonocr-3-0.8b
+  name: LightOnOCR 3 0.8B
+  family: LightOnOCR
+  edition: '3'
+  size: '0.8B'
+  type: Image
+  release_date:
+  aa_score:
+  blurb: Compact vision-language OCR model for structured document extraction.
+  tokenizer_url: https://huggingface.co/lightonai/LightOnOCR-3-0.8B/resolve/main/tokenizer.json
+  context_window_tokens: 262144
   input_modalities:
   - image
   output_modalities:

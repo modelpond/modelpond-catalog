@@ -9,11 +9,16 @@ blurb:
 models:
 - id: mistral-medium-3.5-128b
   name: Mistral Medium 3.5 128B
+  family: Mistral
+  edition: '3.5 Medium'
+  size: '128B'
   type: Text
   release_date: '2026-04-29'
   aa_score: 14.19
   blurb: Mistral's mid-tier flagship, with vision input and a 1M context window in
     the host's configuration.
+  tokenizer_url: https://huggingface.co/mistralai/Mistral-Medium-3.5-128B/resolve/main/tekken.json
+  context_window_tokens: 1048576
   input_modalities:
   - image
   - text
@@ -21,11 +26,17 @@ models:
   - text
 - id: mistral-small-3.2-24b-instruct-2506
   name: Mistral Small 3.2 24B Instruct
+  family: Mistral
+  edition: '3.2 Small'
+  size: '24B Instruct'
+  checkpoint: '2506'
   type: Text
   release_date: '2025-06-20'
   aa_score: 8.25
   blurb: Small European model with vision input; widely hosted and the cheapest Mistral
     here.
+  tokenizer_url: https://huggingface.co/mistralai/Mistral-Small-3.2-24B-Instruct-2506/resolve/main/tekken.json
+  context_window_tokens: 131072
   input_modalities:
   - image
   - text
@@ -33,6 +44,9 @@ models:
   - text
 - id: mistral-nemo-12b
   name: Mistral NeMo 12B
+  family: Mistral
+  edition: 'NeMo'
+  size: '12B'
   type: Text
   release_date: '2024-07-18'
   aa_score:
@@ -44,13 +58,17 @@ models:
   - text
 - id: mistral-large-4
   name: Mistral Large 4
+  family: Mistral
+  edition: '4 Large'
   type: Text
+  flagship: true
   release_date: '2026-10-06'
   aa_score: 38
   aa_report_url: https://artificialanalysis.ai/models/mistral-large-4
   blurb: 'Mistral''s largest model: a one-trillion-parameter mixture of experts with
     52B active parameters and a vision encoder, served from their own European data
     centres. Public preview, with the weights due at the end of October 2026.'
+  tokenizer_url: https://huggingface.co/mistralai/Mistral-Large-4-1T-A52B/resolve/main/tekken.json
   input_modalities:
   - image
   - text
@@ -58,16 +76,21 @@ models:
   - text
   effort_settings:
     supported:
-    - none
+    - low
+    - medium
     - high
     default: high
 - id: mistral-large-3
   name: Mistral Large 3
+  family: Mistral
+  edition: '3 Large'
   type: Text
   release_date: '2025-12-02'
   aa_score:
   blurb: Mixture-of-experts flagship from December 2025, 675B total with 41B active,
     and the generation before Large 4.
+  tokenizer_url: https://huggingface.co/mistralai/Mistral-Large-3-675B-Instruct-2512/resolve/main/tekken.json
+  context_window_tokens: 262144
   input_modalities:
   - image
   - text
@@ -75,6 +98,8 @@ models:
   - text
 - id: mistral-small-4
   name: Mistral Small 4
+  family: Mistral
+  edition: '4 Small'
   type: Text
   release_date: '2026-03-16'
   aa_score:
@@ -87,6 +112,9 @@ models:
   - text
 - id: ministral-3-14b
   name: Ministral 3 14B
+  family: Ministral
+  edition: '3'
+  size: '14B'
   type: Text
   release_date: '2025-12-02'
   aa_score:
@@ -98,6 +126,9 @@ models:
   - text
 - id: ministral-3-8b
   name: Ministral 3 8B
+  family: Ministral
+  edition: '3'
+  size: '8B'
   type: Text
   release_date: '2025-12-02'
   aa_score:
@@ -110,6 +141,9 @@ models:
   - text
 - id: ministral-3-3b
   name: Ministral 3 3B
+  family: Ministral
+  edition: '3'
+  size: '3B'
   type: Text
   release_date: '2025-12-02'
   aa_score:
@@ -122,6 +156,8 @@ models:
   - text
 - id: codestral
   name: Codestral
+  family: Codestral
+  edition: 'Default'
   type: Text
   release_date: '2025-07-30'
   aa_score:
@@ -133,6 +169,8 @@ models:
   - text
 - id: codestral-embed
   name: Codestral Embed
+  family: Codestral
+  edition: 'Embed'
   type: Embeddings
   release_date: '2025-05-28'
   aa_score:
@@ -143,6 +181,8 @@ models:
   - embedding
 - id: ocr-4-1
   name: OCR 4.1
+  family: OCR
+  edition: '4.1'
   type: Image
   release_date: '2026-07-16'
   aa_score:
@@ -154,6 +194,8 @@ models:
   - text
 - id: voxtral-mini-transcribe-2
   name: Voxtral Mini Transcribe 2
+  family: Voxtral
+  edition: '2 Mini Transcribe'
   type: Speech
   release_date: '2026-02-04'
   aa_score:
@@ -164,6 +206,9 @@ models:
   - text
 - id: voxtral-mini-3b
   name: Voxtral Mini 3B
+  family: Voxtral
+  edition: '3 Mini'
+  size: '3B'
   type: Speech
   release_date: '2025-07-15'
   aa_score:
@@ -174,6 +219,8 @@ models:
   - text
 - id: voxtral-tts
   name: Voxtral TTS
+  family: Voxtral
+  edition: 'TTS'
   type: Speech
   release_date: '2026-03-23'
   aa_score:
@@ -185,6 +232,8 @@ models:
   - audio
 - id: mistral-moderation-2
   name: Mistral Moderation 2
+  family: Mistral Moderation
+  edition: '2'
   type: Moderation
   release_date: '2026-03-01'
   aa_score:

@@ -9,6 +9,8 @@ blurb:
 models:
 - id: nvidia-riva-tts
   name: NVIDIA Riva TTS
+  family: Riva
+  edition: 'TTS'
   type: Speech
   release_date:
   aa_score:

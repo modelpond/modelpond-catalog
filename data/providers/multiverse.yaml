@@ -39,13 +39,10 @@ regions:
   endpoint: https://api-eu.compactif.ai/v1
   api_convention: open_ai
   api_key:
-  backend_enabled: false
 models:
 - model_id: carina-60b
   vendor_model_id: carina-60b
   api_model: carina-60b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -62,8 +59,6 @@ models:
 - model_id: qwen-3-8-27b
   vendor_model_id: qwen3.8-27b
   api_model: qwen-3-8-27b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -84,8 +79,6 @@ models:
 - model_id: glm-5-2
   vendor_model_id: glm-5.2
   api_model: glm-5-2
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -106,8 +99,6 @@ models:
 - model_id: glm-5-3
   vendor_model_id: glm-5.3
   api_model: glm-5-3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -128,8 +119,6 @@ models:
 - model_id: quasar-1-2-358b
   vendor_model_id: quasar-1-2-358b
   api_model: quasar-1-2-358b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -150,8 +139,6 @@ models:
 - model_id: quasar-438b
   vendor_model_id: quasar-438b
   api_model: quasar-438b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -172,8 +159,6 @@ models:
 - model_id: cai-whisper-large-v3-turbo-slim
   vendor_model_id: whisper-large-v3-turbo-slim
   api_model: cai-whisper-large-v3-turbo-slim
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -186,4 +171,3 @@ models:
   serving_regions:
   - eu
   note: one-minute minimum
-backend_enabled: false

@@ -9,6 +9,9 @@ blurb:
 models:
 - id: faster-whisper-large-v3
   name: Faster Whisper Large v3
+  family: Whisper
+  edition: '3'
+  size: 'Large'
   type: Speech
   release_date:
   aa_score:

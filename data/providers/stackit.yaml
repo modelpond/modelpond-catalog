@@ -35,13 +35,10 @@ regions:
   endpoint: https://api.openai-compat.model-serving.eu01.onstackit.cloud/v1
   api_convention: open_ai
   api_key:
-  backend_enabled: false
 models:
 - model_id: qwen3-vl-235b-a22b-fp8
   vendor_model_id: qwen3-vl-235b-a22b
   api_model: Qwen/Qwen3-VL-235B-A22B-Instruct-FP8
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -56,8 +53,6 @@ models:
 - model_id: qwen3.8-27b
   vendor_model_id: qwen3.8-27b
   api_model: Qwen/Qwen3.8-27B
-  flagship: true
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -72,8 +67,6 @@ models:
 - model_id: qwen3.6-27b
   vendor_model_id: qwen3.6-27b
   api_model: Qwen/Qwen3.6-27B
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -88,8 +81,6 @@ models:
 - model_id: llama-3.3-70b-instruct-fp8
   vendor_model_id: llama-3.3-70b-instruct
   api_model: cortecs/Llama-3.3-70B-Instruct-FP8-Dynamic
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -104,8 +95,6 @@ models:
 - model_id: gpt-oss-120b
   vendor_model_id: gpt-oss-120b
   api_model: openai/gpt-oss-120b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -120,8 +109,6 @@ models:
 - model_id: gemma-3-27b-it
   vendor_model_id: gemma-3-27b-it
   api_model: google/gemma-3-27b-it
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -136,8 +123,6 @@ models:
 - model_id: gemma-4-31b-it
   vendor_model_id: gemma-4-31b-it
   api_model: google/gemma-4-31B-it
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -152,8 +137,6 @@ models:
 - model_id: gpt-oss-20b
   vendor_model_id: gpt-oss-20b
   api_model: openai/gpt-oss-20b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -168,8 +151,6 @@ models:
 - model_id: e5-mistral-7b-instruct
   vendor_model_id: e5-mistral-7b-instruct
   api_model: intfloat/e5-mistral-7b-instruct
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -184,8 +165,6 @@ models:
 - model_id: qwen3-vl-embedding-8b
   vendor_model_id: qwen3-vl-embedding-8b
   api_model: Qwen/Qwen3-VL-Embedding-8B
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -197,4 +176,3 @@ models:
   serving_regions:
   - eu01
   note: Embedding-Plus tier
-backend_enabled: false

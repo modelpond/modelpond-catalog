@@ -9,6 +9,9 @@ blurb:
 models:
 - id: bielik-11b-v3-instruct
   name: Bielik 11B v3 Instruct
+  family: Bielik
+  edition: '3'
+  size: '11B Instruct'
   type: Text
   release_date:
   aa_score:

@@ -5,40 +5,56 @@ logo: zai.svg
 homepage_featured: true
 full_name: Z.ai
 country: cn
-url:
+url: https://z.ai/
 blurb:
 models:
-- id: glm-5.2
-  name: GLM-5.2
+- id: glm-5.3
+  name: GLM-5.3
+  family: GLM
+  edition: '5.3'
   type: Text
-  release_date: '2026-06-16'
-  aa_score: 33.71
-  blurb: 'Scores 33.7, level with the other mid-tier flagships, and its distinguishing
-    feature is reach: a one-million-token context window, so an entire codebase or
-    document set fits in a single request. Z AI''s strongest hosted configuration
-    here, and the pick for long-context agentic work.'
+  flagship: true
+  release_date: '2026-09-15'
+  aa_score: 45
+  aa_report_url: https://artificialanalysis.ai/models/glm-5-3
+  blurb: Z AI's successor to GLM-5.2. Mistral serves it unmodified as one of the third-party
+    models it hosts.
+  tokenizer_url: https://huggingface.co/zai-org/GLM-5.3/resolve/main/tokenizer.json
+  context_window_tokens: 1048576
   input_modalities:
   - text
   output_modalities:
   - text
   effort_settings:
     supported:
+    - low
     - high
     - max
     default: max
 - id: glm-5.3-flash
   name: GLM 5.3 Flash
+  family: GLM
+  edition: '5.3 Flash'
   type: Text
   release_date: '2026-08-26'
   aa_score: 41.81
   blurb: Cheap, fast variant of GLM 5.3 that still scores near the top of the index.
+  tokenizer_url: https://huggingface.co/zai-org/GLM-5.3-Flash/resolve/main/tokenizer.json
   input_modalities:
   - image
   - text
   output_modalities:
   - text
+  effort_settings:
+    supported:
+    - low
+    - high
+    - max
+    default: max
 - id: glm-5.3-flash-system-one
   name: GLM 5.3 Flash System One
+  family: GLM
+  edition: '5.3 Flash System One'
   type: System One
   release_date: '2026-08-26'
   aa_score: 41.81
@@ -48,21 +64,25 @@ models:
   - text
   output_modalities:
   - typed_decision
-- id: glm-5.3
-  name: GLM-5.3
+- id: glm-5.2
+  name: GLM-5.2
+  family: GLM
+  edition: '5.2'
   type: Text
-  release_date: '2026-09-15'
-  aa_score: 45
-  aa_report_url: https://artificialanalysis.ai/models/glm-5-3
-  blurb: Z AI's successor to GLM-5.2. Mistral serves it unmodified as one of the third-party
-    models it hosts.
+  release_date: '2026-06-16'
+  aa_score: 33.71
+  blurb: 'Scores 33.7, level with the other mid-tier flagships, and its distinguishing
+    feature is reach: a one-million-token context window, so an entire codebase or
+    document set fits in a single request. Z AI''s strongest hosted configuration
+    here, and the pick for long-context agentic work.'
+  tokenizer_url: https://huggingface.co/zai-org/GLM-5.2/resolve/main/tokenizer.json
+  context_window_tokens: 1048576
   input_modalities:
   - text
   output_modalities:
   - text
   effort_settings:
     supported:
-    - low
     - high
     - max
     default: max

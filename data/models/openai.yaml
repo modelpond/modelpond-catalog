@@ -9,36 +9,53 @@ blurb:
 models:
 - id: gpt-oss-120b
   name: gpt-oss-120b
+  family: GPT-OSS
+  edition: 'Default'
+  size: '120B'
   type: Text
   release_date: '2025-08-05'
   aa_score: 11.6
   blurb: OpenAI's open-weights release, older generation but cheap to run at scale.
+  tokenizer_url: https://huggingface.co/openai/gpt-oss-120b/resolve/main/tokenizer.json
+  context_window_tokens: 131072
   input_modalities:
   - text
   output_modalities:
   - text
 - id: gpt-oss-20b
   name: gpt-oss-20b
+  family: GPT-OSS
+  edition: 'Default'
+  size: '20B'
   type: Text
   release_date: '2025-08-05'
   aa_score: 8.97
   blurb: 20B sibling of the 120B model, aimed at low-latency work.
+  tokenizer_url: https://huggingface.co/openai/gpt-oss-20b/resolve/main/tokenizer.json
+  context_window_tokens: 131072
   input_modalities:
   - text
   output_modalities:
   - text
 - id: whisper-large-v3
   name: Whisper Large v3
+  family: Whisper
+  edition: '3'
+  size: 'Large'
   type: Speech
   release_date: '2023-11-06'
   aa_score:
   blurb: OpenAI's speech recognition model. Artificial Analysis does not score it.
+  tokenizer_url: https://huggingface.co/openai/whisper-large-v3/resolve/main/tokenizer.json
   input_modalities:
   - audio
   output_modalities:
   - text
 - id: whisper-large-v3-turbo
   name: Whisper Large v3 Turbo
+  family: Whisper
+  edition: '3'
+  size: 'Large Turbo'
   type: Speech
   release_date: '2024-10-01'
   aa_score:

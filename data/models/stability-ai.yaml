@@ -9,6 +9,8 @@ blurb:
 models:
 - id: stable-diffusion-xl
   name: Stable Diffusion XL
+  family: Stable Diffusion
+  edition: 'XL'
   type: Image
   release_date: '2023-07-26'
   aa_score:

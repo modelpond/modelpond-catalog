@@ -43,7 +43,6 @@ regions:
   endpoint:
   api_convention:
   api_key:
-  backend_enabled: false
 - id: de
   label: Germany
   description: Privatemode runs on confidential-computing infrastructure provided
@@ -51,13 +50,10 @@ regions:
   endpoint:
   api_convention:
   api_key:
-  backend_enabled: false
 models:
 - model_id: glm-5.3
   vendor_model_id: glm-5.3
   api_model: glm-5.3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -75,8 +71,6 @@ models:
 - model_id: glm-5.3-flash
   vendor_model_id: glm-5.3-flash
   api_model: glm-5.3-flash
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -96,8 +90,6 @@ models:
 - model_id: gpt-oss-120b
   vendor_model_id: gpt-oss-120b
   api_model: gpt-oss-120b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -115,8 +107,6 @@ models:
 - model_id: deepseek-ocr-2
   vendor_model_id: deepseek-ocr-2
   api_model: deepseek-ocr-2
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -135,8 +125,6 @@ models:
 - model_id: qwen3-embedding-4b
   vendor_model_id: qwen3-embedding-4b
   api_model: qwen3-embedding-4b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -151,8 +139,6 @@ models:
 - model_id: voxtral-mini-3b
   vendor_model_id: voxtral-mini-3b
   api_model: voxtral-mini-3b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -168,8 +154,6 @@ models:
 - model_id: whisper-large-v3
   vendor_model_id: whisper-large-v3
   api_model: whisper-large-v3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -185,8 +169,6 @@ models:
 - model_id: system-one/glm-5.3-flash
   vendor_model_id: glm-5.3-flash-system-one
   api_model: glm-5.3-flash
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: EUR
     input:
@@ -204,4 +186,3 @@ models:
   note: Single-token decision configuration
   output_modalities:
   - typed_decision
-backend_enabled: false

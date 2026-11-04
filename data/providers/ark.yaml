@@ -37,13 +37,10 @@ regions:
   endpoint:
   api_convention:
   api_key:
-  backend_enabled: false
 models:
 - model_id: qwen3.6-35b-a3b
   vendor_model_id: qwen3.6-35b-a3b
   api_model: arklabsai/Qwen3.6-35B-A3B
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -60,8 +57,6 @@ models:
 - model_id: qwen3.5-122b-a10b
   vendor_model_id: qwen3.5-122b-a10b
   api_model: arklabsai/Qwen3.5-122B-A10B
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -78,8 +73,6 @@ models:
 - model_id: qwen3.5-4b
   vendor_model_id: qwen3.5-4b
   api_model: arklabsai/Qwen3.5-4B
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -96,8 +89,6 @@ models:
 - model_id: bielik-11b-v3.0-instruct
   vendor_model_id: bielik-11b-v3-instruct
   api_model: arklabsai/Bielik-11B-v3.0-Instruct
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -114,8 +105,6 @@ models:
 - model_id: bge-m3
   vendor_model_id: bge-m3
   api_model: arklabsai/bge-m3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -130,8 +119,6 @@ models:
 - model_id: whisper-large-v3-turbo
   vendor_model_id: whisper-large-v3-turbo
   api_model: arklabsai/whisper-large-v3-turbo
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -143,4 +130,3 @@ models:
       unit:
   serving_regions:
   - pl
-backend_enabled: false

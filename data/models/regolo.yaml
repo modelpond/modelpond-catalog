@@ -9,6 +9,8 @@ blurb:
 models:
 - id: clef-flash
   name: Clef Flash
+  family: Clef
+  edition: 'Flash'
   type: System One
   release_date:
   aa_score:
@@ -19,6 +21,8 @@ models:
   - typed_decision
 - id: brick-complexity-pro
   name: Brick Complexity Pro
+  family: Brick
+  edition: 'Complexity Pro'
   type: Text
   release_date:
   aa_score:
@@ -29,6 +33,8 @@ models:
   - text
 - id: brick-v1-beta
   name: Brick v1 Beta
+  family: Brick
+  edition: '1 Beta'
   type: Text
   release_date:
   aa_score:

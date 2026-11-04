@@ -9,6 +9,9 @@ blurb:
 models:
 - id: swissai-apertus-1.5-70b
   name: SwissAI Apertus 1.5 70B
+  family: Apertus
+  edition: '1.5'
+  size: '70B'
   type: Text
   release_date:
   aa_score:

@@ -9,6 +9,8 @@ blurb:
 models:
 - id: flux-1-schnell
   name: FLUX.1 schnell
+  family: FLUX
+  edition: '1 Schnell'
   type: Image
   release_date: '2024-08-01'
   aa_score:
@@ -19,6 +21,9 @@ models:
   - image
 - id: flux-2-klein-4b
   name: FLUX.2 klein 4B
+  family: FLUX
+  edition: '2 Klein'
+  size: '4B'
   type: Image
   release_date:
   aa_score:

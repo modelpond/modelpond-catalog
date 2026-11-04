@@ -9,6 +9,8 @@ blurb:
 models:
 - id: laya-english
   name: Laya English
+  family: Laya
+  edition: 'English'
   type: System One
   release_date:
   aa_score:
@@ -19,6 +21,8 @@ models:
   - typed_decision
 - id: laya-multilingual
   name: Laya Multilingual
+  family: Laya
+  edition: 'Multilingual'
   type: System One
   release_date:
   aa_score:
@@ -29,6 +33,8 @@ models:
   - typed_decision
 - id: laya-typed-decisions
   name: Laya Typed Decisions
+  family: Laya
+  edition: 'Typed Decisions'
   type: System One
   release_date:
   aa_score:

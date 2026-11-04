@@ -40,13 +40,10 @@ regions:
   endpoint:
   api_convention:
   api_key:
-  backend_enabled: false
 models:
 - model_id: strom-1.0.7
   vendor_model_id: strom-1.0.7
   api_model: strom-1.0.7
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -59,4 +56,3 @@ models:
   serving_regions:
   - fi-hel2
   note: video is sent frame by frame
-backend_enabled: false

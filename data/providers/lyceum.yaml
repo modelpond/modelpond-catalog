@@ -37,21 +37,17 @@ regions:
   description: Lyceum serverless inference runs on GPU compute in Paris, France.
   endpoint: https://api.lyceum.technology/openai/v1
   api_convention: open_ai
-  api_key:
-  backend_enabled: false
+  api_key: LYCEUM_API_KEY
 - id: finland
   label: Finland
   description: Lyceum serverless inference runs on GPU compute in Finland.
   endpoint: https://api.lyceum.technology/openai/v1
   api_convention: open_ai
-  api_key:
-  backend_enabled: false
+  api_key: LYCEUM_API_KEY
 models:
 - model_id: deepseek-v4.1-flash
   vendor_model_id: deepseek-v4.1-flash
   api_model: deepseek/deepseek-v4.1-flash
-  flagship: true
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -72,20 +68,18 @@ models:
 - model_id: glm-5.3
   vendor_model_id: glm-5.3
   api_model: z-ai/glm-5.3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
-      value: 1.221
+      value: 1.4
       unit: M
       dp: 3
     cached_input:
-      value: 0.227
+      value: 0.26
       unit: M
       dp: 3
     output:
-      value: 3.838
+      value: 4.4
       unit: M
       dp: 3
   serving_regions:
@@ -94,8 +88,6 @@ models:
 - model_id: kimi-k3
   vendor_model_id: kimi-k3
   api_model: moonshotai/kimi-k3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -116,8 +108,6 @@ models:
 - model_id: glm-5.3-flash
   vendor_model_id: glm-5.3-flash
   api_model: z-ai/glm-5.3-flash
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -140,8 +130,6 @@ models:
 - model_id: deepseek-v4-pro-0813
   vendor_model_id: deepseek-v4-pro-0813
   api_model: deepseek/deepseek-v4-pro-0813
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -162,8 +150,6 @@ models:
 - model_id: kimi-k2.7-code
   vendor_model_id: kimi-k2.7-code
   api_model: moonshotai/kimi-k2.7-code
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -185,8 +171,6 @@ models:
 - model_id: qwen3.8-2.4t-a95b
   vendor_model_id: qwen3.8-2.4t-a95b
   api_model: qwen/qwen3.8-2.4t-a95b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -207,8 +191,6 @@ models:
 - model_id: qwen3.8-flash-next
   vendor_model_id: qwen3.8-flash-next
   api_model: qwen/qwen3.8-flash-next
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -229,8 +211,6 @@ models:
 - model_id: minimax-m3
   vendor_model_id: minimax-m3
   api_model: minimax/minimax-m3
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -251,8 +231,6 @@ models:
 - model_id: glm-5.2
   vendor_model_id: glm-5.2
   api_model: z-ai/glm-5.2
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -273,8 +251,6 @@ models:
 - model_id: qwen3-embedding-8b
   vendor_model_id: qwen3-embedding-8b
   api_model: qwen/qwen3-embedding-8b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -290,8 +266,6 @@ models:
 - model_id: qwen3.8-27b
   vendor_model_id: qwen3.8-27b
   api_model: qwen/qwen3.8-27b
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -312,8 +286,6 @@ models:
 - model_id: deepseek-v4-flash-0731
   vendor_model_id: deepseek-v4-flash-0731
   api_model: deepseek/deepseek-v4-flash-0731
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -334,8 +306,6 @@ models:
 - model_id: deepseek-v4-pro
   vendor_model_id: deepseek-v4-pro
   api_model: deepseek/deepseek-v4-pro
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -357,8 +327,6 @@ models:
 - model_id: qwen3.8-27b-instant
   vendor_model_id: qwen3.8-27b
   api_model: qwen/qwen3.8-27b-instant
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -380,8 +348,6 @@ models:
 - model_id: qwen3.8-flash-next-instant
   vendor_model_id: qwen3.8-flash-next
   api_model: qwen/qwen3.8-flash-next-instant
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -403,8 +369,6 @@ models:
 - model_id: glm-5.2-instant
   vendor_model_id: glm-5.2
   api_model: z-ai/glm-5.2-instant
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -426,8 +390,6 @@ models:
 - model_id: glm-5.3-flash-instant
   vendor_model_id: glm-5.3-flash
   api_model: z-ai/glm-5.3-flash-instant
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -451,8 +413,6 @@ models:
 - model_id: glm-5.3-instant
   vendor_model_id: glm-5.3
   api_model: z-ai/glm-5.3-instant
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -471,4 +431,3 @@ models:
   - paris
   - finland
   note: Instant variant
-backend_enabled: false

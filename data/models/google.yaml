@@ -9,10 +9,15 @@ blurb:
 models:
 - id: gemma-4-26b-a4b-it
   name: Gemma 4 26B A4B
+  family: Gemma
+  edition: '4'
+  size: '26B A4B'
   type: Text
   release_date: '2026-04-02'
   aa_score: 16.67
   blurb: Mixture-of-experts Gemma with image input and a 256K context window.
+  tokenizer_url: https://huggingface.co/google/gemma-4-26B-A4B-it/resolve/main/tokenizer.json
+  context_window_tokens: 262144
   input_modalities:
   - image
   - text
@@ -20,10 +25,15 @@ models:
   - text
 - id: gemma-4-31b-it
   name: Gemma 4 31B
+  family: Gemma
+  edition: '4'
+  size: '31B'
   type: Text
   release_date: '2026-04-02'
   aa_score: 18.98
   blurb: Dense 31B sibling of the 26B model, same release window.
+  tokenizer_url: https://huggingface.co/google/gemma-4-31B-it/resolve/main/tokenizer.json
+  context_window_tokens: 262144
   input_modalities:
   - image
   - text
@@ -31,10 +41,15 @@ models:
   - text
 - id: gemma-3-27b-it
   name: Gemma 3 27B
+  family: Gemma
+  edition: '3'
+  size: '27B'
   type: Text
   release_date: '2025-03-12'
   aa_score: 4.85
   blurb: Previous-generation Gemma with vision input; superseded by Gemma 4.
+  tokenizer_url: https://huggingface.co/google/gemma-3-27b-it/resolve/main/tokenizer.json
+  context_window_tokens: 131072
   input_modalities:
   - image
   - text

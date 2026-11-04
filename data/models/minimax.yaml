@@ -9,6 +9,8 @@ blurb:
 models:
 - id: minimax-m3.1-flash
   name: MiniMax M3.1 Flash
+  family: MiniMax
+  edition: '3.1 Flash'
   type: Text
   release_date:
   aa_score: 42.7
@@ -22,6 +24,8 @@ models:
   - text
 - id: minimax-m3
   name: MiniMax M3
+  family: MiniMax
+  edition: '3'
   type: Text
   release_date:
   aa_score:

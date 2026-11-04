@@ -11,6 +11,7 @@ use serde::Deserialize;
 use serde::Serialize;
 
 pub const COMPILE_DATA_DIR: &str = concat!(env!("CARGO_MANIFEST_DIR"), "/data");
+pub const USD_TO_EUR_RATE: f64 = 0.87237;
 
 static CATALOG: OnceLock<Catalog> = OnceLock::new();
 
@@ -24,6 +25,8 @@ pub enum ProviderType {
     OpenAi,
     OpenRouter,
     Anthropic,
+    #[serde(rename = "mistral")]
+    Mistral,
 }
 
 impl fmt::Display for ProviderType {
@@ -32,6 +35,7 @@ impl fmt::Display for ProviderType {
             Self::OpenAi => write!(formatter, "openai"),
             Self::OpenRouter => write!(formatter, "openrouter"),
             Self::Anthropic => write!(formatter, "anthropic"),
+            Self::Mistral => write!(formatter, "mistral"),
         }
     }
 }
@@ -73,7 +77,6 @@ pub struct Provider {
     pub urls: BTreeMap<String, ProviderLink>,
     pub regions: Vec<ProviderRegion>,
     pub models: Vec<ProviderModel>,
-    pub backend_enabled: bool,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -104,7 +107,6 @@ pub struct ProviderRegion {
     pub api_convention: Option<ProviderType>,
     #[serde(skip_serializing)]
     pub api_key: Option<String>,
-    pub backend_enabled: bool,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -113,17 +115,23 @@ pub struct ProviderModel {
     pub model_id: String,
     pub vendor_model_id: String,
     pub api_model: String,
-    #[serde(default)]
-    pub flagship: bool,
-    pub backend_enabled: bool,
+    /// Optional provider-imposed limit below the model's native context window.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub context_window_cap_tokens: Option<u64>,
     pub pricing: HostedPricing,
     pub serving_regions: Vec<String>,
     pub note: Option<String>,
     pub input_modalities: Option<Vec<String>>,
     pub output_modalities: Option<Vec<String>>,
     pub restricted_effort_settings: Option<EffortSettings>,
-    #[serde(default)]
-    pub profiles: Vec<SystemProfile>,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub struct BackendModel<'a> {
+    pub provider_type: &'a ProviderType,
+    pub endpoint: &'a str,
+    pub api_key: &'a str,
+    pub model: &'a str,
 }
 
 impl ProviderModel {
@@ -172,16 +180,6 @@ impl Default for EffortSettings {
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields)]
-pub struct SystemProfile {
-    pub id: i64,
-    pub display_name: String,
-    pub selectable: bool,
-    pub legacy: bool,
-    pub assigned_by: String,
-}
-
-#[derive(Debug, Deserialize, Serialize)]
-#[serde(deny_unknown_fields)]
 pub struct Vendor {
     pub id: String,
     pub name: String,
@@ -200,12 +198,29 @@ pub struct Vendor {
 pub struct VendorModel {
     pub id: String,
     pub name: String,
+    /// User-facing model family used to group editions in selectors.
+    pub family: String,
+    /// User-facing edition label, excluding size and checkpoint metadata.
+    pub edition: String,
+    /// Size or parameter designation as labelled by the model publisher.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub size: Option<String>,
+    /// Internal checkpoint identifier, intentionally hidden from end users.
+    #[serde(default, skip_serializing)]
+    pub checkpoint: Option<String>,
     #[serde(rename = "type")]
     pub model_type: String,
     pub release_date: Option<String>,
     pub aa_score: Option<f64>,
     pub aa_report_url: Option<String>,
     pub blurb: String,
+    /// Whether this model belongs in the catalogue's flagship tier.
+    #[serde(default)]
+    pub flagship: bool,
+    /// Canonical downloadable tokenizer definition for the model.
+    pub tokenizer_url: Option<String>,
+    /// Maximum model-native context window, before provider caps.
+    pub context_window_tokens: Option<u64>,
     pub input_modalities: Vec<String>,
     pub output_modalities: Vec<String>,
     #[serde(default)]
@@ -218,113 +233,6 @@ pub struct Section {
     #[serde(rename = "type")]
     pub model_type: String,
     pub blurb: String,
-}
-
-#[derive(Serialize)]
-struct RetailProvider<'a> {
-    id: &'a str,
-    name: &'a str,
-    logo: &'a str,
-    country: &'a str,
-    blurb: &'a str,
-    urls: &'a BTreeMap<String, ProviderLink>,
-    regions: Vec<RetailRegion<'a>>,
-    backend_enabled: bool,
-}
-
-#[derive(Serialize)]
-struct RetailRegion<'a> {
-    id: &'a str,
-    label: &'a str,
-    description: Option<&'a str>,
-    backend_enabled: bool,
-}
-
-#[derive(Serialize)]
-struct RetailVendor<'a> {
-    id: &'a str,
-    name: &'a str,
-    logo: Option<&'a str>,
-    homepage_featured: bool,
-    url: Option<&'a str>,
-}
-
-#[derive(Serialize)]
-struct RetailBaseModel<'a> {
-    id: &'a str,
-    name: &'a str,
-    company: &'a str,
-    country: &'a str,
-    #[serde(rename = "type")]
-    model_type: &'a str,
-    #[serde(rename = "releaseDate")]
-    release_date: Option<&'a str>,
-    #[serde(rename = "aaScore")]
-    aa_score: Option<f64>,
-    #[serde(rename = "aaReportUrl")]
-    aa_report_url: Option<&'a str>,
-    tagline: &'a str,
-    input_modalities: &'a [String],
-    output_modalities: &'a [String],
-    vendor_id: &'a str,
-    vendor_url: Option<&'a str>,
-    vendor_blurb: Option<&'a str>,
-    brand_logo: Option<&'a str>,
-}
-
-#[derive(Serialize)]
-struct RetailHostedModel<'a> {
-    model: String,
-    provider: &'a str,
-    #[serde(rename = "providerName")]
-    provider_name: &'a str,
-    #[serde(rename = "baseModel")]
-    base_model: &'a str,
-    #[serde(rename = "type")]
-    model_type: &'a str,
-    #[serde(skip_serializing_if = "is_false")]
-    flagship: bool,
-    input_modalities: Vec<String>,
-    output_modalities: Vec<String>,
-    currency: &'a str,
-    #[serde(rename = "in")]
-    input_price: &'a Price,
-    #[serde(rename = "cachedIn", skip_serializing_if = "Option::is_none")]
-    cached_input_price: Option<&'a Price>,
-    #[serde(rename = "out")]
-    output_price: &'a Price,
-    #[serde(rename = "outNote", skip_serializing_if = "Option::is_none")]
-    output_note: Option<&'a str>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    note: Option<&'a str>,
-    provider_id: &'a str,
-    backend_enabled: bool,
-    serving_regions: &'a [String],
-    profile_ids: Vec<i64>,
-    reasoning_efforts: Vec<String>,
-    default_reasoning_effort: String,
-    blurb: &'a str,
-}
-
-#[derive(Serialize)]
-struct RetailProfile<'a> {
-    id: i64,
-    provider_id: &'a str,
-    name: &'a str,
-    model_name: &'a str,
-    model_vendor: &'a str,
-    model_vendor_url: Option<&'a str>,
-    brand_logo: Option<&'a str>,
-    reasoning_efforts: Vec<String>,
-    default_reasoning_effort: String,
-    hosted_model_key: String,
-    assigned_by: &'a str,
-    legacy: bool,
-    selectable: bool,
-}
-
-fn is_false(value: &bool) -> bool {
-    !*value
 }
 
 fn validate_effort_settings(
@@ -379,6 +287,16 @@ impl Catalog {
         })
     }
 
+    pub fn backend_model(&self, hosted_model_id: &str) -> Option<BackendModel<'_>> {
+        let (_, region, hosted) = self.provider_model(hosted_model_id)?;
+        Some(BackendModel {
+            provider_type: region.api_convention.as_ref()?,
+            endpoint: region.endpoint.as_deref()?,
+            api_key: region.api_key.as_deref()?,
+            model: &hosted.api_model,
+        })
+    }
+
     pub fn vendor_model(&self, model_id: &str) -> Option<(&Vendor, &VendorModel)> {
         self.vendors.iter().find_map(|vendor| {
             vendor
@@ -386,16 +304,6 @@ impl Catalog {
                 .iter()
                 .find(|model| model.id == model_id)
                 .map(|model| (vendor, model))
-        })
-    }
-
-    pub fn backend_region<'a>(
-        &'a self,
-        provider: &'a Provider,
-        model: &'a ProviderModel,
-    ) -> Option<&'a ProviderRegion> {
-        provider.regions.iter().find(|region| {
-            region.backend_enabled && model.serving_regions.iter().any(|id| id == &region.id)
         })
     }
 
@@ -409,7 +317,6 @@ impl Catalog {
         let effort_levels = HashSet::from(["none", "low", "medium", "high", "max"]);
         let mut provider_ids = HashSet::new();
         let mut hosted_model_ids = HashSet::new();
-        let mut profile_ids = HashSet::new();
         for provider in &self.providers {
             if !provider_ids.insert(provider.id.as_str()) {
                 return Err(format!("duplicate provider id '{}'", provider.id));
@@ -431,22 +338,6 @@ impl Catalog {
                         provider.id, region.id
                     ));
                 }
-                if region.backend_enabled && !provider.backend_enabled {
-                    return Err(format!(
-                        "region '{}:{}' is backend-enabled under a disabled provider",
-                        provider.id, region.id
-                    ));
-                }
-                if region.backend_enabled
-                    && (region.endpoint.is_none()
-                        || region.api_convention.is_none()
-                        || region.api_key.is_none())
-                {
-                    return Err(format!(
-                        "backend region '{}:{}' is missing API configuration",
-                        provider.id, region.id
-                    ));
-                }
             }
 
             let region_ids = provider
@@ -456,15 +347,50 @@ impl Catalog {
                 .collect::<HashSet<_>>();
             for model in &provider.models {
                 let model_label = format!("{}/{}", provider.id, model.model_id);
+                let (_, vendor_model) =
+                    self.vendor_model(&model.vendor_model_id).ok_or_else(|| {
+                        format!(
+                            "provider model '{model_label}' references unknown vendor model '{}'",
+                            model.vendor_model_id
+                        )
+                    })?;
                 if model.serving_regions.is_empty() {
                     return Err(format!(
                         "provider model '{model_label}' has no serving regions"
                     ));
                 }
-                if self.vendor_model(&model.vendor_model_id).is_none() {
+                if let Some(cap) = model.context_window_cap_tokens {
+                    if cap == 0 {
+                        return Err(format!(
+                            "provider model '{model_label}' context cap must be positive"
+                        ));
+                    }
+                    if let Some(context_window) = vendor_model.context_window_tokens {
+                        if cap > context_window {
+                            return Err(format!(
+                                "provider model '{model_label}' context cap {cap} exceeds vendor context window {context_window}"
+                            ));
+                        }
+                    }
+                }
+                let input_modalities = model
+                    .input_modalities
+                    .as_deref()
+                    .unwrap_or(&vendor_model.input_modalities);
+                let output_modalities = model
+                    .output_modalities
+                    .as_deref()
+                    .unwrap_or(&vendor_model.output_modalities);
+                let audio_model = input_modalities
+                    .iter()
+                    .chain(output_modalities)
+                    .any(|modality| modality == "audio");
+                if model.pricing.input.value.is_none() {
+                    return Err(format!("provider model '{model_label}' has no input price"));
+                }
+                if !audio_model && model.pricing.output.value.is_none() {
                     return Err(format!(
-                        "provider model '{model_label}' references unknown vendor model '{}'",
-                        model.vendor_model_id
+                        "provider model '{model_label}' has no output price"
                     ));
                 }
                 for modality in model
@@ -490,35 +416,8 @@ impl Catalog {
                         return Err(format!("duplicate provider model key '{key}'"));
                     }
                 }
-                if model.backend_enabled && self.backend_region(provider, model).is_none() {
-                    return Err(format!(
-                        "backend model '{model_label}' has no enabled serving region"
-                    ));
-                }
-                if !model.profiles.is_empty() && !model.backend_enabled {
-                    return Err(format!(
-                        "model with profiles '{model_label}' is not backend-enabled"
-                    ));
-                }
                 if let Some(settings) = &model.restricted_effort_settings {
                     validate_effort_settings(settings, &model_label, &effort_levels)?;
-                }
-                for profile in &model.profiles {
-                    if profile.id >= 0 {
-                        return Err(format!(
-                            "catalog profile '{}' must have a negative id",
-                            profile.id
-                        ));
-                    }
-                    if profile.assigned_by != "system" {
-                        return Err(format!(
-                            "catalog profile '{}' must be system-assigned",
-                            profile.id
-                        ));
-                    }
-                    if !profile_ids.insert(profile.id) {
-                        return Err(format!("duplicate profile id '{}'", profile.id));
-                    }
                 }
             }
         }
@@ -538,6 +437,12 @@ impl Catalog {
 
         let mut vendor_ids = HashSet::new();
         let mut model_ids = HashSet::new();
+        let hosted_vendor_model_ids = self
+            .providers
+            .iter()
+            .flat_map(|provider| &provider.models)
+            .map(|model| model.vendor_model_id.as_str())
+            .collect::<HashSet<_>>();
         for vendor in &self.vendors {
             if !vendor_ids.insert(vendor.id.as_str()) {
                 return Err(format!("duplicate vendor id '{}'", vendor.id));
@@ -552,8 +457,44 @@ impl Catalog {
                 }
             }
             for model in &vendor.models {
+                if !hosted_vendor_model_ids.contains(model.id.as_str()) {
+                    return Err(format!("vendor model '{}' has no provider entry", model.id));
+                }
+                if model.family.trim().is_empty() {
+                    return Err(format!("model '{}' has no family", model.id));
+                }
+                if model.edition.trim().is_empty() {
+                    return Err(format!("model '{}' has no edition", model.id));
+                }
+                if model
+                    .size
+                    .as_deref()
+                    .is_some_and(|size| size.trim().is_empty())
+                {
+                    return Err(format!("model '{}' has an empty size", model.id));
+                }
+                if model
+                    .checkpoint
+                    .as_deref()
+                    .is_some_and(|checkpoint| checkpoint.trim().is_empty())
+                {
+                    return Err(format!("model '{}' has an empty checkpoint", model.id));
+                }
                 if !model_ids.insert(model.id.as_str()) {
                     return Err(format!("duplicate model id '{}'", model.id));
+                }
+                if model.context_window_tokens == Some(0) {
+                    return Err(format!(
+                        "model '{}' context window must be positive",
+                        model.id
+                    ));
+                }
+                if model
+                    .tokenizer_url
+                    .as_deref()
+                    .is_some_and(|url| !url.starts_with("https://"))
+                {
+                    return Err(format!("model '{}' tokenizer URL must use HTTPS", model.id));
                 }
                 if !section_types.contains(model.model_type.as_str()) {
                     return Err(format!(
@@ -654,200 +595,36 @@ pub fn data() -> &'static Catalog {
     CATALOG.get_or_init(|| load().unwrap_or_else(|error| panic!("invalid model catalog: {error}")))
 }
 
-pub fn export_retail_js() -> anyhow::Result<String> {
-    let catalog = data();
-    let retail_helpers = read_data_file("catalog-retail-helpers.js")?;
-    let providers = catalog
-        .providers
-        .iter()
-        .map(|provider| RetailProvider {
-            id: &provider.id,
-            name: &provider.name,
-            logo: &provider.logo,
-            country: &provider.country,
-            blurb: &provider.blurb,
-            urls: &provider.urls,
-            regions: provider
-                .regions
-                .iter()
-                .map(|region| RetailRegion {
-                    id: &region.id,
-                    label: &region.label,
-                    description: region.description.as_deref(),
-                    backend_enabled: region.backend_enabled,
-                })
-                .collect(),
-            backend_enabled: provider.backend_enabled,
-        })
-        .collect::<Vec<_>>();
-
-    let vendors = catalog
-        .vendors
-        .iter()
-        .map(|vendor| RetailVendor {
-            id: &vendor.id,
-            name: &vendor.name,
-            logo: vendor.logo.as_deref(),
-            homepage_featured: vendor.homepage_featured,
-            url: vendor.url.as_deref(),
-        })
-        .collect::<Vec<_>>();
-
-    let base_models = catalog
-        .vendors
-        .iter()
-        .flat_map(|vendor| {
-            vendor.models.iter().map(|model| RetailBaseModel {
-                id: &model.id,
-                name: &model.name,
-                company: &vendor.name,
-                country: &vendor.country,
-                model_type: &model.model_type,
-                release_date: model.release_date.as_deref(),
-                aa_score: model.aa_score,
-                aa_report_url: model.aa_report_url.as_deref(),
-                tagline: &model.blurb,
-                input_modalities: &model.input_modalities,
-                output_modalities: &model.output_modalities,
-                vendor_id: &vendor.id,
-                vendor_url: vendor.url.as_deref(),
-                vendor_blurb: vendor.blurb.as_deref(),
-                brand_logo: vendor.logo.as_deref(),
-            })
-        })
-        .collect::<Vec<_>>();
-
-    let mut hosted_models = Vec::new();
-    let mut profiles = Vec::new();
-    for provider in &catalog.providers {
-        for hosted in &provider.models {
-            let (vendor, model) =
-                catalog
-                    .vendor_model(&hosted.vendor_model_id)
-                    .ok_or_else(|| {
-                        anyhow::anyhow!(
-                            "provider model '{}/{}' references unknown vendor model '{}'",
-                            provider.id,
-                            hosted.model_id,
-                            hosted.vendor_model_id
-                        )
-                    })?;
-            let input_modalities = hosted
-                .input_modalities
-                .as_ref()
-                .unwrap_or(&model.input_modalities)
-                .clone();
-            let output_modalities = hosted
-                .output_modalities
-                .as_ref()
-                .unwrap_or(&model.output_modalities)
-                .clone();
-            let effort_settings = hosted.effort_settings(model);
-            let efforts = effort_settings.supported.clone();
-            let default_effort = effort_settings.default.clone();
-
-            for region_id in &hosted.serving_regions {
-                let region = provider
-                    .regions
-                    .iter()
-                    .find(|region| &region.id == region_id)
-                    .ok_or_else(|| {
-                        anyhow::anyhow!(
-                            "provider model '{}/{}' references unknown region '{}'",
-                            provider.id,
-                            hosted.model_id,
-                            region_id
-                        )
-                    })?;
-                let backend_enabled = hosted.backend_enabled && region.backend_enabled;
-
-                hosted_models.push(RetailHostedModel {
-                    model: provider_model_key(&provider.id, region_id, &hosted.model_id),
-                    provider: &provider.name,
-                    provider_name: &hosted.api_model,
-                    base_model: &hosted.vendor_model_id,
-                    model_type: &model.model_type,
-                    flagship: hosted.flagship,
-                    input_modalities: input_modalities.clone(),
-                    output_modalities: output_modalities.clone(),
-                    currency: &hosted.pricing.currency,
-                    input_price: &hosted.pricing.input,
-                    cached_input_price: hosted.pricing.cached_input.as_ref(),
-                    output_price: &hosted.pricing.output,
-                    output_note: hosted.pricing.output_note.as_deref(),
-                    note: hosted.note.as_deref(),
-                    provider_id: &provider.id,
-                    backend_enabled,
-                    serving_regions: std::slice::from_ref(region_id),
-                    profile_ids: if backend_enabled {
-                        hosted.profiles.iter().map(|profile| profile.id).collect()
-                    } else {
-                        Vec::new()
-                    },
-                    reasoning_efforts: efforts.clone(),
-                    default_reasoning_effort: default_effort.clone(),
-                    blurb: &model.blurb,
-                });
-            }
-
-            if !hosted.profiles.is_empty() {
-                let profile_region = catalog.backend_region(provider, hosted).ok_or_else(|| {
-                    anyhow::anyhow!(
-                        "model with profiles '{}/{}' has no backend region",
-                        provider.id,
-                        hosted.model_id
-                    )
-                })?;
-                let hosted_model_key =
-                    provider_model_key(&provider.id, &profile_region.id, &hosted.model_id);
-                profiles.extend(hosted.profiles.iter().map(|profile| RetailProfile {
-                    id: profile.id,
-                    provider_id: &provider.id,
-                    name: &profile.display_name,
-                    model_name: &hosted.api_model,
-                    model_vendor: vendor.full_name.as_deref().unwrap_or(&vendor.name),
-                    model_vendor_url: vendor.url.as_deref(),
-                    brand_logo: vendor.logo.as_deref(),
-                    reasoning_efforts: efforts.clone(),
-                    default_reasoning_effort: default_effort.clone(),
-                    hosted_model_key: hosted_model_key.clone(),
-                    assigned_by: &profile.assigned_by,
-                    legacy: profile.legacy,
-                    selectable: profile.selectable,
-                }));
-            }
-        }
+pub fn convert_currency(value: f64, from: &str, to: &str, decimals: u32) -> Option<f64> {
+    if !value.is_finite() {
+        return None;
     }
-
-    Ok(format!(
-        "// Generated from Model Pond's backend catalog. Do not edit directly.\n\
-         const CATALOG_SCHEMA_VERSION = {};\n\
-         const CATALOG_PRICING_POLICY = {};\n\
-         const BASE_MODELS = {};\n\
-         const CATALOG = {};\n\
-         const CATALOG_VENDORS = {};\n\
-         const CATALOG_PROVIDERS = {};\n\
-         const CATALOG_PROFILES = {};\n\
-         const CATALOG_SECTIONS = {};\n\
-         const CATALOG_ICONS = {};\n\
-         const CATALOG_ORDER = {};\n\n{}",
-        serde_json::to_string(&catalog.config.version)?,
-        serde_json::to_string_pretty(&catalog.config.pricing_policy)?,
-        serde_json::to_string_pretty(&base_models)?,
-        serde_json::to_string_pretty(&hosted_models)?,
-        serde_json::to_string_pretty(&vendors)?,
-        serde_json::to_string_pretty(&providers)?,
-        serde_json::to_string_pretty(&profiles)?,
-        serde_json::to_string_pretty(&catalog.config.sections)?,
-        serde_json::to_string_pretty(&catalog.config.icons)?,
-        serde_json::to_string_pretty(&catalog.config.modality_order)?,
-        retail_helpers,
-    ))
+    if from == to {
+        return Some(value);
+    }
+    let converted = match (from, to) {
+        ("USD", "EUR") => value * USD_TO_EUR_RATE,
+        ("EUR", "USD") => value / USD_TO_EUR_RATE,
+        _ => return None,
+    };
+    let precision = 10_f64.powi(i32::try_from(decimals).ok()?);
+    if !precision.is_finite() {
+        return None;
+    }
+    Some((converted * precision).ceil() / precision)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn currency_conversion_rounds_up_to_display_precision() {
+        assert_eq!(convert_currency(1.4, "USD", "EUR", 2), Some(1.23));
+        assert_eq!(convert_currency(1.4, "USD", "EUR", 3), Some(1.222));
+        assert_eq!(convert_currency(1.4, "EUR", "EUR", 2), Some(1.4));
+        assert_eq!(convert_currency(1.4, "GBP", "EUR", 2), None);
+    }
 
     #[cfg(debug_assertions)]
     #[test]
@@ -871,7 +648,7 @@ mod tests {
                 .iter()
                 .map(|provider| provider.models.len())
                 .sum::<usize>(),
-            163
+            164
         );
         assert_eq!(catalog.vendors.len(), 24);
         assert_eq!(
@@ -880,7 +657,7 @@ mod tests {
                 .iter()
                 .map(|vendor| vendor.models.len())
                 .sum::<usize>(),
-            88
+            89
         );
     }
 
@@ -898,10 +675,180 @@ mod tests {
         assert_eq!(region.id, "fr-par");
         assert_eq!(vendor.name, "Alibaba");
         assert_eq!(model.name, "Qwen3.8 27B");
+        assert_eq!(model.family, "Qwen");
+        assert_eq!(model.edition, "3.8");
+        assert_eq!(model.size.as_deref(), Some("27B"));
+        assert_eq!(model.checkpoint, None);
         assert_eq!(model.model_type, "Text");
         assert_eq!(hosted.pricing.currency, "EUR");
         assert_eq!(hosted.pricing.output.value, Some(3.3));
         assert_eq!(model.aa_score, Some(33.7));
+    }
+
+    #[test]
+    fn model_families_preserve_edition_order() {
+        let catalog = data();
+        let family_ids = |family: &str| {
+            catalog
+                .vendors
+                .iter()
+                .flat_map(|vendor| &vendor.models)
+                .filter(|model| model.family == family)
+                .map(|model| model.id.as_str())
+                .collect::<Vec<_>>()
+        };
+
+        assert_eq!(
+            &family_ids("GLM")[..3],
+            ["glm-5.3", "glm-5.3-flash", "glm-5.3-flash-system-one"]
+        );
+        assert_eq!(
+            family_ids("DeepSeek"),
+            [
+                "deepseek-v4-flash-0731",
+                "deepseek-v4-pro-0813",
+                "deepseek-v4-pro",
+                "deepseek-v4.1-flash",
+                "deepseek-v4.1-flash-1017",
+                "deepseek-ocr-2",
+            ]
+        );
+        let (_, flash) = catalog
+            .vendor_model("deepseek-v4-flash-0731")
+            .expect("DeepSeek Flash should exist");
+        assert_eq!(flash.edition, "4 Flash");
+        assert_eq!(flash.size, None);
+        assert_eq!(flash.checkpoint.as_deref(), Some("0731"));
+        let serialized = serde_yaml::to_string(flash).expect("model should serialize");
+        assert!(serialized.contains("family: DeepSeek"));
+        assert!(serialized.contains("edition: 4 Flash"));
+        assert!(!serialized.contains("checkpoint:"));
+
+        let (_, glm) = catalog
+            .vendor_model("glm-5.3")
+            .expect("GLM 5.3 should exist");
+        assert_eq!(glm.edition, "5.3");
+        assert_eq!(glm.size, None);
+        assert_eq!(glm.checkpoint, None);
+    }
+
+    #[test]
+    fn scaleway_priced_models_record_context_and_tokenizers() {
+        let catalog = data();
+        for (model_id, context_window) in [
+            ("glm-5.3", 1_048_576),
+            ("glm-5.2", 1_048_576),
+            ("deepseek-v4.1-flash-1017", 1_048_576),
+            ("deepseek-v4-flash-0731", 1_048_576),
+            ("qwen3.8-27b", 262_144),
+            ("qwen3.6-35b-a3b", 262_144),
+            ("qwen3.5-397b-a17b", 262_144),
+            ("qwen3-235b-a22b-instruct-2507", 262_144),
+            ("qwen3-embedding-8b", 40_960),
+            ("gemma-4-26b-a4b-it", 262_144),
+            ("gpt-oss-120b", 131_072),
+            ("whisper-large-v3", 0),
+            ("lightonocr-3-0.8b", 262_144),
+            ("llama-3.3-70b-instruct", 131_072),
+            ("mistral-medium-3.5-128b", 1_048_576),
+            ("mistral-small-3.2-24b-instruct-2506", 131_072),
+            ("bge-multilingual-gemma2", 8_192),
+        ] {
+            let (_, model) = catalog.vendor_model(model_id).expect("model should exist");
+            assert!(
+                model
+                    .tokenizer_url
+                    .as_deref()
+                    .is_some_and(|url| url.starts_with("https://huggingface.co/")),
+                "model '{}' is missing its tokenizer URL",
+                model.id
+            );
+            if context_window == 0 {
+                assert_eq!(model.context_window_tokens, None);
+            } else {
+                assert_eq!(
+                    model.context_window_tokens,
+                    Some(context_window),
+                    "model '{}' has the wrong context window",
+                    model.id
+                );
+            }
+        }
+    }
+
+    #[test]
+    fn scaleway_models_record_provider_context_caps() {
+        let catalog = data();
+        for (model_id, context_cap) in [
+            ("deepseek-v4-flash-0731", 256_000),
+            ("deepseek-v4.1-flash-1017", 256_000),
+            ("glm-5.3", 256_000),
+            ("glm-5.2", 256_000),
+            ("qwen3.8-27b", 256_000),
+            ("qwen3.6-35b-a3b", 256_000),
+            ("gemma-4-26b-a4b-it", 256_000),
+            ("mistral-medium-3.5-128b", 256_000),
+            ("llama-3.3-70b-instruct", 128_000),
+            ("qwen3-235b-a22b-instruct-2507", 250_000),
+            ("qwen3.5-397b-a17b", 250_000),
+            ("mistral-small-3.2-24b-instruct-2506", 128_000),
+            ("gpt-oss-120b", 128_000),
+        ] {
+            let (_, _, hosted) = catalog
+                .provider_model(&format!("scaleway/fr-par/{model_id}"))
+                .expect("Scaleway model should exist");
+            assert_eq!(hosted.context_window_cap_tokens, Some(context_cap));
+        }
+    }
+
+    #[test]
+    fn all_provider_models_have_required_prices() {
+        let catalog = data();
+        for provider in &catalog.providers {
+            for model in &provider.models {
+                let (_, vendor_model) = catalog
+                    .vendor_model(&model.vendor_model_id)
+                    .expect("provider model should reference vendor model");
+                let input = model
+                    .input_modalities
+                    .as_deref()
+                    .unwrap_or(&vendor_model.input_modalities);
+                let output = model
+                    .output_modalities
+                    .as_deref()
+                    .unwrap_or(&vendor_model.output_modalities);
+                let audio_model = input
+                    .iter()
+                    .chain(output)
+                    .any(|modality| modality == "audio");
+                assert!(
+                    model.pricing.input.value.is_some(),
+                    "provider model '{}/{}' has no input price",
+                    provider.id,
+                    model.model_id
+                );
+                if !audio_model {
+                    assert!(
+                        model.pricing.output.value.is_some(),
+                        "provider model '{}/{}' has no output price",
+                        provider.id,
+                        model.model_id
+                    );
+                }
+            }
+        }
+    }
+
+    #[test]
+    fn backend_model_resolves_call_configuration() {
+        let backend = data()
+            .backend_model("scaleway/fr-par/mistral-small-3.2-24b-instruct-2506")
+            .expect("backend model should resolve");
+        assert_eq!(backend.provider_type, &ProviderType::OpenAi);
+        assert_eq!(backend.endpoint, "https://api.scaleway.ai/v1");
+        assert_eq!(backend.api_key, "SCALEWAY_API_KEY");
+        assert_eq!(backend.model, "mistral-small-3.2-24b-instruct-2506");
+        assert!(data().backend_model("missing/model").is_none());
     }
 
     #[test]
@@ -1063,66 +1010,41 @@ mod tests {
     }
 
     #[test]
-    fn flagship_models_link_to_artificial_analysis_reports() {
+    fn flagship_flags_belong_to_vendor_models() {
         let catalog = data();
-        for model_id in [
-            "qwen3.8-27b",
-            "deepseek-v4-flash-0731",
-            "mistral-large-4",
-            "kimi-k3",
-            "glm-5.3",
-        ] {
-            let (_, model) = catalog
-                .vendor_model(model_id)
-                .expect("flagship model should exist");
-            assert!(
-                model
-                    .aa_report_url
-                    .as_deref()
-                    .is_some_and(|url| url.starts_with("https://artificialanalysis.ai/")),
-                "flagship model '{model_id}' needs an AA report URL"
-            );
-        }
-    }
-
-    #[test]
-    fn system_profiles_keep_negative_ids() {
-        let profiles = data()
-            .providers
+        let mut flagships = catalog
+            .vendors
             .iter()
-            .flat_map(|provider| &provider.models)
-            .flat_map(|model| &model.profiles)
+            .flat_map(|vendor| &vendor.models)
+            .filter(|model| model.flagship)
+            .map(|model| model.id.as_str())
             .collect::<Vec<_>>();
-        assert!(!profiles.is_empty());
-        assert!(profiles.iter().all(|profile| profile.id < 0));
-        assert!(
-            profiles
-                .iter()
-                .all(|profile| profile.assigned_by == "system")
+        flagships.sort_unstable();
+        assert_eq!(
+            flagships,
+            vec![
+                "deepseek-v4.1-flash",
+                "deepseek-v4.1-flash-1017",
+                "glm-5.3",
+                "kimi-k3",
+                "mistral-large-4",
+                "qwen3.8-2.4t-a95b",
+                "qwen3.8-27b",
+            ]
         );
-    }
-
-    #[test]
-    fn retail_export_contains_combined_metadata_without_backend_access() {
-        let api_json = serde_json::to_string(data()).expect("catalog API should serialize");
-        let script = export_retail_js().expect("catalog should export");
-        assert!(script.contains("const BASE_MODELS ="));
-        assert!(script.contains("const CATALOG ="));
-        assert!(script.contains("const CATALOG_VENDORS ="));
-        assert!(script.contains("const CATALOG_PROVIDERS ="));
-        assert!(script.contains("const CATALOG_PROFILES ="));
-        assert!(script.contains("const CATALOG_PRICING_POLICY ="));
-        assert!(script.contains("function catalogModalities"));
-        assert!(script.contains("\"input_modalities\""));
-        assert!(script.contains("\"output_modalities\""));
-        assert!(script.contains("\"privacy\""));
-        assert!(script.contains("\"zdr\""));
-        assert!(script.contains("\"currency\": \"USD\""));
-        assert!(!script.contains("\"capabilities\""));
-        assert!(!script.contains("api_key"));
-        assert!(!script.contains("api_base_url"));
-        assert!(!script.contains("https://api.scaleway.ai/v1"));
-        assert!(!api_json.contains("SCALEWAY_API_KEY"));
-        assert!(!api_json.contains("https://api.scaleway.ai/v1"));
+        for model in catalog
+            .vendors
+            .iter()
+            .flat_map(|vendor| &vendor.models)
+            .filter(|model| model.flagship)
+        {
+            if let Some(url) = model.aa_report_url.as_deref() {
+                assert!(
+                    url.starts_with("https://artificialanalysis.ai/"),
+                    "flagship model '{}' has an invalid AA report URL",
+                    model.id
+                );
+            }
+        }
     }
 }

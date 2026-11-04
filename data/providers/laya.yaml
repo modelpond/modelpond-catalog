@@ -40,13 +40,10 @@ regions:
   endpoint:
   api_convention:
   api_key:
-  backend_enabled: false
 models:
 - model_id: english
   vendor_model_id: laya-english
   api_model: english
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -61,8 +58,6 @@ models:
 - model_id: multilingual
   vendor_model_id: laya-multilingual
   api_model: multilingual
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -78,8 +73,6 @@ models:
 - model_id: typed-decisions
   vendor_model_id: laya-typed-decisions
   api_model: typed-decisions
-  flagship: false
-  backend_enabled: false
   pricing:
     currency: USD
     input:
@@ -92,4 +85,3 @@ models:
   serving_regions:
   - ch
   note: explicit checkpoint
-backend_enabled: false
