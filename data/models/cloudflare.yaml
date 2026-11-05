@@ -1,0 +1,39 @@
+---
+id: cloudflare
+name: Cloudflare
+logo:
+homepage_featured: false
+country: us
+url: https://www.cloudflare.com/
+blurb:
+models:
+- id: clef
+  name: Clef
+  family: Clef
+  edition: 'Default'
+  size: '27B'
+  type: System One
+  release_date: '2026-10-17'
+  aa_score:
+  blurb: Decision model for typed choices, scores and yes/no questions, returning
+    calibrated probabilities without generated prose.
+  context_window_tokens: 16384
+  input_modalities:
+  - text
+  output_modalities:
+  - typed_decision
+- id: clef-flash
+  name: Clef Flash
+  family: Clef
+  edition: 'Flash'
+  size: '9B'
+  type: System One
+  release_date: '2026-10-17'
+  aa_score:
+  blurb: Faster, lower-cost Clef decision model for routing and classification before
+    generation.
+  context_window_tokens: 16384
+  input_modalities:
+  - text
+  output_modalities:
+  - typed_decision

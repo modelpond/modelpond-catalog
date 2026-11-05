@@ -7,6 +7,22 @@ country: cn
 url:
 blurb:
 models:
+- id: kimi-k2.6
+  name: Kimi K2.6
+  family: Kimi
+  edition: '2.6'
+  type: Text
+  release_date: '2026-04-23'
+  aa_score:
+  blurb: One-trillion-parameter mixture-of-experts model with 32B active parameters,
+    MoonViT vision input, video input and a 256K context window.
+  context_window_tokens: 262144
+  input_modalities:
+  - image
+  - video
+  - text
+  output_modalities:
+  - text
 - id: kimi-k3
   name: Kimi K3
   family: Kimi

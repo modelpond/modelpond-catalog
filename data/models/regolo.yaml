@@ -7,18 +7,6 @@ country: it
 url:
 blurb:
 models:
-- id: clef-flash
-  name: Clef Flash
-  family: Clef
-  edition: 'Flash'
-  type: System One
-  release_date:
-  aa_score:
-  blurb: Low-cost decision model used to route or classify requests before generation.
-  input_modalities:
-  - text
-  output_modalities:
-  - typed_decision
 - id: brick-complexity-pro
   name: Brick Complexity Pro
   family: Brick

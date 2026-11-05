@@ -7,6 +7,35 @@ country: de
 url:
 blurb:
 models:
+- id: flux-2-dev
+  name: FLUX.2 dev
+  family: FLUX
+  edition: '2 Dev'
+  type: Image
+  release_date:
+  aa_score:
+  blurb: Full-size FLUX.2 text-to-image model with stronger prompt following and text
+    rendering, and support for image editing.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - image
+- id: flux-2-klein-9b
+  name: FLUX.2 klein 9B
+  family: FLUX
+  edition: '2 Klein'
+  size: '9B'
+  type: Image
+  release_date:
+  aa_score:
+  blurb: Mid-sized FLUX.2 model balancing image quality and generation speed, with
+    text-to-image and image-to-image support.
+  input_modalities:
+  - image
+  - text
+  output_modalities:
+  - image
 - id: flux-1-schnell
   name: FLUX.1 schnell
   family: FLUX

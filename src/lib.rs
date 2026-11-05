@@ -641,23 +641,23 @@ mod tests {
         let catalog = data();
         assert_eq!(catalog.config.pricing_policy.currency, "EUR");
         assert_eq!(catalog.config.sections.len(), 7);
-        assert_eq!(catalog.providers.len(), 14);
+        assert_eq!(catalog.providers.len(), 15);
         assert_eq!(
             catalog
                 .providers
                 .iter()
                 .map(|provider| provider.models.len())
                 .sum::<usize>(),
-            164
+            200
         );
-        assert_eq!(catalog.vendors.len(), 24);
+        assert_eq!(catalog.vendors.len(), 25);
         assert_eq!(
             catalog
                 .vendors
                 .iter()
                 .map(|vendor| vendor.models.len())
                 .sum::<usize>(),
-            89
+            93
         );
     }
 
@@ -852,6 +852,53 @@ mod tests {
     }
 
     #[test]
+    fn melious_exposes_all_documented_models_and_price_units() {
+        let catalog = data();
+        let (provider, region, _) = catalog
+            .provider_model("melious/eu/qwen3.8-max")
+            .expect("Melious Qwen3.8 Max should exist");
+        let (_, alias) = catalog
+            .vendor_model("qwen3.8-2.4t-a95b")
+            .expect("Qwen3.8 Max should use the canonical model");
+        let backend = catalog
+            .backend_model("melious/eu/qwen3.8-max")
+            .expect("Melious backend should resolve");
+
+        assert_eq!(provider.models.len(), 36);
+        assert_eq!(
+            provider.privacy_url(),
+            Some("https://melious.ai/legal/privacy")
+        );
+        assert_eq!(
+            provider.urls.get("dpa").map(|link| link.url.as_str()),
+            Some("https://melious.ai/legal/dpa")
+        );
+        assert_eq!(region.id, "eu");
+        assert_eq!(alias.name, "Qwen3.8 2.4T A95B");
+        assert_eq!(backend.provider_type, &ProviderType::OpenAi);
+        assert_eq!(backend.endpoint, "https://api.melious.ai/v1");
+        assert_eq!(backend.api_key, "MELIOUS_API_KEY");
+
+        let (_, _, image) = catalog
+            .provider_model("melious/eu/flux-2-dev")
+            .expect("FLUX.2 dev should exist");
+        assert_eq!(image.pricing.output.value, Some(0.015));
+        assert_eq!(image.pricing.output.unit.as_deref(), Some("image"));
+
+        let (_, _, audio) = catalog
+            .provider_model("melious/eu/whisper-large-v3")
+            .expect("Whisper should exist");
+        assert_eq!(audio.pricing.input.value, Some(0.003));
+        assert_eq!(audio.pricing.input.unit.as_deref(), Some("min"));
+
+        let (_, _, guardrail) = catalog
+            .provider_model("melious/eu/qwen3guard-gen-8b")
+            .expect("Qwen3Guard should exist");
+        assert_eq!(guardrail.pricing.input.value, Some(0.0));
+        assert_eq!(guardrail.pricing.output.value, Some(0.0));
+    }
+
+    #[test]
     fn pricing_keeps_the_provider_currency() {
         let catalog = data();
         let (_, _, ark) = catalog
@@ -880,6 +927,7 @@ mod tests {
             .collect::<HashSet<_>>();
 
         for model_id in [
+            "clef",
             "clef-flash",
             "glm-5.3-flash-system-one",
             "laya-english",
